@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using UnityEngine;
 
 public class TaskList : MonoBehaviour {
@@ -28,6 +29,13 @@ public class TaskList : MonoBehaviour {
         AddTask(Path.GetRandomFileName().Substring(0, 6), UnityEngine.Random.Range(5, 15));
     }
 
+    // Also used for testing
+    public void CompleteRandomTask() {
+        if (tasks.Keys.Count > 0) {
+            RemoveTask(tasks.Keys.First(), true);
+        }
+    }
+
     public void Update() {
         SortTasksByTimeRemaining();
         RemoveTimedOutTasks();
@@ -53,9 +61,13 @@ public class TaskList : MonoBehaviour {
             }
         }
         foreach (int id in timedOutIds) {
-            Task taskToRemove = tasks[id];
-            StartCoroutine(taskToRemove.PlayDestroyEffect(() => Destroy(taskToRemove.gameObject)));
-            tasks.Remove(id);
+            RemoveTask(id, false);
         }
+    }
+
+    private void RemoveTask(int id, bool isSuccessful) {
+        Task taskToRemove = tasks[id];
+        StartCoroutine(taskToRemove.PlayDestroyEffect(isSuccessful, () => Destroy(taskToRemove.gameObject)));
+        tasks.Remove(id);
     }
 }

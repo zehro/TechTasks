@@ -5,6 +5,9 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Task : MonoBehaviour, IComparable<Task> {
+    private const string SUCCESS_MESSAGE = "Complete! :)";
+
+    private const string FAILURE_MESSAGE = "Out of time! :(";
 
     [SerializeField]
     private Image timeCircle;
@@ -21,6 +24,18 @@ public class Task : MonoBehaviour, IComparable<Task> {
     [SerializeField]
     private Color endColor;
 
+    [SerializeField]
+    private Color successColor;
+
+    [SerializeField]
+    private Color failureColor;
+
+    /// <summary>
+    /// How long to wait until the task is removed
+    /// </summary>
+    [SerializeField]
+    private float secondsBeforeRemoval;
+
     /// <summary>
     /// How long to do the growth and shrink effect on add/removal.
     /// </summary>
@@ -32,6 +47,8 @@ public class Task : MonoBehaviour, IComparable<Task> {
     private float currentSeconds;
 
     private int totalSeconds;
+
+    private bool isBeginRemoval;
 
     public bool IsExpired {
         get {
@@ -98,7 +115,24 @@ public class Task : MonoBehaviour, IComparable<Task> {
         yield return PlayScalingEffect(Vector3.zero, Vector3.one);
     }
 
-    public IEnumerator PlayDestroyEffect(Action callBack) {
+    public IEnumerator PlayDestroyEffect(bool isSuccessful, Action callBack) {
+        isBeginRemoval = true;
+
+        string result = string.Empty;
+        Color color = Color.red;
+
+        if (isSuccessful) {
+            result = SUCCESS_MESSAGE;
+            color = successColor;
+        } else {
+            result = FAILURE_MESSAGE;
+            color = failureColor;
+        }
+
+        ObjectiveName = string.Format("{0} - {1}", objectiveName, result);
+        Color = color;
+
+        yield return new WaitForSeconds(secondsBeforeRemoval);
         yield return PlayScalingEffect(Vector3.one, Vector3.zero);
         callBack();
     }
@@ -113,7 +147,9 @@ public class Task : MonoBehaviour, IComparable<Task> {
     }
 
     private void Update() {
-        SetTime(currentSeconds - Time.deltaTime);
+        if (!isBeginRemoval) {
+            SetTime(currentSeconds - Time.deltaTime);
+        }
     }
 
     private IEnumerator PlayScalingEffect(Vector3 initialSize, Vector3 endSize) {

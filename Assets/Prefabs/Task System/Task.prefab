@@ -130,6 +130,9 @@ MonoBehaviour:
   time: {fileID: 114922895637712578}
   initialColor: {r: 0, g: 1, b: 0, a: 1}
   endColor: {r: 1, g: 0, b: 0, a: 1}
+  successColor: {r: 0, g: 1, b: 1, a: 1}
+  failureColor: {r: 0.7941176, g: 0.7941176, b: 0.7941176, a: 1}
+  secondsBeforeRemoval: 1
   animationTime: 0.25
 --- !u!114 &114242406022053928
 MonoBehaviour:
