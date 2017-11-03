@@ -30,8 +30,11 @@ public class TestMovement : MonoBehaviour {
     }
 
     private void DoMovement(IList<Vector3> directions) {
+        Vector3 finalDirection = Vector3.zero;
         foreach (Vector3 direction in directions) {
-            transform.position += (direction * speedMultiplier);
+            finalDirection += (direction * speedMultiplier);
         }
+        transform.position += finalDirection;
+        transform.rotation = Quaternion.LookRotation(finalDirection);
     }
 }

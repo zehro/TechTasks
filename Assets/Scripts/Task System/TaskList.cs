@@ -12,43 +12,34 @@ public class TaskList : MonoBehaviour {
     // int is the instance id
     private IDictionary<int, Task> tasks;
 
-    private void Start() {
-        this.tasks = new Dictionary<int, Task>();
+    /// <summary>
+    /// Adds the task.
+    /// </summary>
+    /// <param name="objectiveName">Name of the objective.</param>
+    /// <param name="initialTime">The initial time.</param>
+    /// <returns>ID of the task just added.</returns>
+    public int AddTask(string objectiveName, int initialTime) {
+        Task newTask = Instantiate<Task>(taskPrefab);
+        AppendTaskToUI(newTask, objectiveName, initialTime);
+        return newTask.gameObject.GetInstanceID();
     }
 
-    public void AddTask(string objectiveName, int initialTime) {
-        Task newTask = GameObject.Instantiate<Task>(taskPrefab);
+    public void CompleteTask(int taskID, bool isSuccessful) {
+        RemoveTask(taskID, isSuccessful);
+    }
+
+    private void AppendTaskToUI(Task newTask, string objectiveName, int initialTime) {
         newTask.InitializeValues(objectiveName, initialTime);
         newTask.transform.SetParent(this.transform);
         tasks.Add(newTask.gameObject.GetInstanceID(), newTask);
         StartCoroutine(newTask.PlayAddEffect());
     }
 
-    // Used for testing purposes
-    public void AddRandomTask() {
-        AddTask(Path.GetRandomFileName().Substring(0, 6), UnityEngine.Random.Range(5, 15));
-    }
-
-    // Also used for testing
-    public void CompleteRandomTask() {
-        if (tasks.Keys.Count > 0) {
-            RemoveTask(tasks.Keys.First(), true);
-        }
-    }
-
-    public void Update() {
-        SortTasksByTimeRemaining();
-        RemoveTimedOutTasks();
-    }
-
-    private void SortTasksByTimeRemaining() {
-        Task[] children = GetComponentsInChildren<Task>();
-        foreach (Task child in children) {
-            child.transform.SetParent(null);
-        }
-        Array.Sort(children);
-        foreach (Task child in children) {
-            child.transform.SetParent(this.transform);
+    private void RemoveTask(int id, bool isSuccessful) {
+        if (tasks.ContainsKey(id)) {
+            Task taskToRemove = tasks[id];
+            StartCoroutine(taskToRemove.PlayDestroyEffect(isSuccessful, () => Destroy(taskToRemove.gameObject)));
+            tasks.Remove(id);
         }
     }
 
@@ -65,9 +56,23 @@ public class TaskList : MonoBehaviour {
         }
     }
 
-    private void RemoveTask(int id, bool isSuccessful) {
-        Task taskToRemove = tasks[id];
-        StartCoroutine(taskToRemove.PlayDestroyEffect(isSuccessful, () => Destroy(taskToRemove.gameObject)));
-        tasks.Remove(id);
+    private void SortTasksByTimeRemaining() {
+        Task[] children = GetComponentsInChildren<Task>();
+        foreach (Task child in children) {
+            child.transform.SetParent(null);
+        }
+        Array.Sort(children);
+        foreach (Task child in children) {
+            child.transform.SetParent(this.transform);
+        }
+    }
+
+    private void Start() {
+        this.tasks = new Dictionary<int, Task>();
+    }
+
+    private void Update() {
+        SortTasksByTimeRemaining();
+        RemoveTimedOutTasks();
     }
 }
