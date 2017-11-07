@@ -3,7 +3,7 @@ guid: 02cc343e6a3dc354b8e1053fe717bb2f
 timeCreated: 1506774952
 licenseType: Free
 ModelImporter:
-  serializedVersion: 21
+  serializedVersion: 22
   fileIDToRecycleName:
     100000: ball_l
     100002: ball_r
@@ -239,10 +239,12 @@ ModelImporter:
     13700030: mannequin_geo_pelvis
     13700032: mannequin_geo_thigh_l
     13700034: mannequin_geo_thigh_r
+  externalObjects: {}
   materials:
     importMaterials: 0
     materialName: 0
     materialSearch: 1
+    materialLocation: 0
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
@@ -255,6 +257,7 @@ ModelImporter:
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
     animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
@@ -262,7 +265,35 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Idle
+      takeName: Idle
+      firstFrame: 0
+      lastFrame: 400
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []
