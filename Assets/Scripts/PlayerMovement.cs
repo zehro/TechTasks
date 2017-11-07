@@ -18,6 +18,7 @@ public class PlayerMovement : MonoBehaviour {
     // Public attributes
     public float fwdInterpolation = 0.05f;
     public float turnInterpolation = 0.05f;
+    public Transform cameraProxy;
 
     private void Awake()
     {
@@ -90,7 +91,7 @@ public class PlayerMovement : MonoBehaviour {
         //filteredTurnInput = Mathf.Lerp(filteredTurnInput, h, Time.deltaTime * turnInputFilter);
 
         // Get the relative vector
-        Vector3 relativeVector = transform.InverseTransformDirection(input);
+        Vector3 relativeVector = cameraProxy.InverseTransformDirection(input);
 
         // Pass in the raw input values into the animator
         playerAnimator.SetFloat("Input: Left-Right", relativeVector.x);

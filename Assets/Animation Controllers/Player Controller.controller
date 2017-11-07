@@ -86,32 +86,16 @@ BlendTree:
     m_Mirror: 0
   - serializedVersion: 2
     m_Motion: {fileID: 7400000, guid: ded76bcee27213d43b102aab4d2912bd, type: 3}
-    m_Threshold: 0.057793457
-    m_Position: {x: 0, y: 0.5}
-    m_TimeScale: 1
-    m_CycleOffset: 0
-    m_DirectBlendParameter: Forward/Backward
-    m_Mirror: 0
-  - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 191478bc7d5441149988f9fd6d810383, type: 3}
-    m_Threshold: 0.115586914
-    m_Position: {x: -0.15, y: 0.4}
+    m_Threshold: 0.09632243
+    m_Position: {x: 0, y: 0.35}
     m_TimeScale: 1
     m_CycleOffset: 0
     m_DirectBlendParameter: Forward/Backward
     m_Mirror: 0
   - serializedVersion: 2
     m_Motion: {fileID: 7400000, guid: 3cf590ac9380e3d40a94b96ec4d48ce6, type: 3}
-    m_Threshold: 0.17338037
-    m_Position: {x: -0.5, y: 0}
-    m_TimeScale: 1
-    m_CycleOffset: 0
-    m_DirectBlendParameter: Forward/Backward
-    m_Mirror: 0
-  - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 152059dba653e654a9d98f7713c12042, type: 3}
-    m_Threshold: 0.23117383
-    m_Position: {x: 0.15, y: 0.4}
+    m_Threshold: 0.19264486
+    m_Position: {x: -0.35, y: 0}
     m_TimeScale: 1
     m_CycleOffset: 0
     m_DirectBlendParameter: Forward/Backward
@@ -119,39 +103,23 @@ BlendTree:
   - serializedVersion: 2
     m_Motion: {fileID: 7400000, guid: df8a726095f7d3642ac4de2a71898ffd, type: 3}
     m_Threshold: 0.28896728
-    m_Position: {x: 0.5, y: 0}
+    m_Position: {x: 0.35, y: 0}
     m_TimeScale: 1
     m_CycleOffset: 0
     m_DirectBlendParameter: Forward/Backward
     m_Mirror: 0
   - serializedVersion: 2
     m_Motion: {fileID: 7400000, guid: 3e660993f7d746944bec45b98e5d9cf9, type: 3}
-    m_Threshold: 0.34676075
+    m_Threshold: 0.38528973
     m_Position: {x: 0, y: 1}
     m_TimeScale: 1
     m_CycleOffset: 0
     m_DirectBlendParameter: Forward/Backward
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 9ea68200fe6a9fc4098b2ec61609c20b, type: 3}
-    m_Threshold: 0.4045542
-    m_Position: {x: -0.25, y: 0.9}
-    m_TimeScale: 1
-    m_CycleOffset: 0
-    m_DirectBlendParameter: Forward/Backward
-    m_Mirror: 0
-  - serializedVersion: 2
     m_Motion: {fileID: 7400000, guid: 7369586326479d04db3efab3be83c6a6, type: 3}
-    m_Threshold: 0.46234766
+    m_Threshold: 0.48161212
     m_Position: {x: -1, y: 0}
-    m_TimeScale: 1
-    m_CycleOffset: 0
-    m_DirectBlendParameter: Forward/Backward
-    m_Mirror: 0
-  - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: cd0787cbdd1b3a6478a636b57e2982b9, type: 3}
-    m_Threshold: 0.52014107
-    m_Position: {x: 0.25, y: 0.9}
     m_TimeScale: 1
     m_CycleOffset: 0
     m_DirectBlendParameter: Forward/Backward
@@ -585,7 +553,7 @@ AnimatorStateTransition:
     m_EventTreshold: -0.01
   - m_ConditionMode: 3
     m_ConditionEvent: 'Input: Fwd-Bwd'
-    m_EventTreshold: -0.61
+    m_EventTreshold: -0.36
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102198079764640872}
   m_Solo: 0
@@ -721,18 +689,6 @@ AnimatorStateTransition:
   - m_ConditionMode: 4
     m_ConditionEvent: VelocityX
     m_EventTreshold: 0.1
-  - m_ConditionMode: 3
-    m_ConditionEvent: 'Input: Fwd-Bwd'
-    m_EventTreshold: -0.02
-  - m_ConditionMode: 4
-    m_ConditionEvent: 'Input: Fwd-Bwd'
-    m_EventTreshold: 0.02
-  - m_ConditionMode: 3
-    m_ConditionEvent: 'Input: Left-Right'
-    m_EventTreshold: -0.02
-  - m_ConditionMode: 4
-    m_ConditionEvent: 'Input: Left-Right'
-    m_EventTreshold: 0.02
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102038051066967204}
   m_Solo: 0
@@ -831,7 +787,7 @@ AnimatorStateTransition:
     m_EventTreshold: 0.5
   - m_ConditionMode: 4
     m_ConditionEvent: 'Input: Fwd-Bwd'
-    m_EventTreshold: -0.6
+    m_EventTreshold: -0.35
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102811065382338772}
   m_Solo: 0
@@ -903,7 +859,7 @@ AnimatorStateTransition:
     m_EventTreshold: 0.5
   - m_ConditionMode: 4
     m_ConditionEvent: 'Input: Fwd-Bwd'
-    m_EventTreshold: -0.6
+    m_EventTreshold: -0.35
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102811065382338772}
   m_Solo: 0
@@ -936,7 +892,7 @@ AnimatorStateTransition:
     m_EventTreshold: -0.01
   - m_ConditionMode: 3
     m_ConditionEvent: 'Input: Fwd-Bwd'
-    m_EventTreshold: -0.61
+    m_EventTreshold: -0.36
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102198079764640872}
   m_Solo: 0
