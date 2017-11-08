@@ -11,6 +11,8 @@ public class ThirdPersonCamera : MonoBehaviour {
 
     void Start()
     {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     void Update()
@@ -18,8 +20,15 @@ public class ThirdPersonCamera : MonoBehaviour {
         float h = Input.GetAxis("Mouse X") * pitchSpeed;
         float v = Input.GetAxis("Mouse Y") * yawSpeed;
 
-        // Rotate the target's "forward" vector
-        target.Rotate(0, -h, 0);
+        // Rotates the camera proxy
+        target.Rotate(v, -h, 0);
+
+        // Lock "roll"/z-axis of camera proxy
+        target.rotation = Quaternion.Euler(
+            target.rotation.eulerAngles.x,
+            target.rotation.eulerAngles.y,
+            0
+        );
 
         // Rotate camera according to mouse inputs
         transform.Rotate(-v, h, 0);
@@ -36,5 +45,11 @@ public class ThirdPersonCamera : MonoBehaviour {
 
         // Update position around the target + offset
         transform.position = target.position + relativeVector;
+    }
+
+    void OnMouseDown()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 }
