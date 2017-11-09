@@ -22,7 +22,7 @@ public class TestMovement : MonoBehaviour {
     private IList<Vector3> GetDirection() {
         List<Vector3> directions = new List<Vector3>();
         foreach (KeyValuePair<KeyCode, Vector3> pair in KEYCODE_TO_DIRECTION) {
-            if (Input.GetKey(pair.Key)) {
+            if (Input.GetKey(pair.Key) && Time.timeScale > 0) {
                 directions.Add(pair.Value);
             }
         }
