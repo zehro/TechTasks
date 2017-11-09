@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PauseMenuManager : MonoBehaviour {
     private const int DEFAULT_TIME = 1;
@@ -11,6 +12,24 @@ public class PauseMenuManager : MonoBehaviour {
 
     private bool isGameRunning;
 
+    public void GoToMainMenu() {
+        SceneManager.LoadScene("MainMenu");
+    }
+
+    public void GoToSettings() {
+        Debug.Log("No settings yet.");
+    }
+
+    public void TogglePause() {
+        if (isGameRunning) {
+            Time.timeScale = PAUSE_TIME;
+        } else {
+            Time.timeScale = DEFAULT_TIME;
+        }
+        pauseMenu.SetActive(isGameRunning);
+        isGameRunning = !isGameRunning;
+    }
+
     private void Start() {
         isGameRunning = true;
     }
@@ -18,13 +37,7 @@ public class PauseMenuManager : MonoBehaviour {
     // Update is called once per frame
     private void Update() {
         if (Input.GetKeyDown(KeyCode.Escape)) {
-            if (isGameRunning) {
-                Time.timeScale = PAUSE_TIME;
-            } else {
-                Time.timeScale = DEFAULT_TIME;
-            }
-            pauseMenu.SetActive(isGameRunning);
-            isGameRunning = !isGameRunning;
+            TogglePause();
         }
     }
 }
