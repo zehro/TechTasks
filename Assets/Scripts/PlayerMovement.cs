@@ -58,6 +58,29 @@ public class PlayerMovement : MonoBehaviour {
         // Enforce circular joystick mapping which should coincide with circular blendtree positions
         input = Vector3.ClampMagnitude(new Vector3(inputH, 0, inputV), 1.0f);
 
+        //// Do some filtering of our input as well as clamp to a speed limit
+        //velocityZ = Mathf.Clamp(Mathf.Lerp(velocityZ, Mathf.Abs(relativeVector.z), fwdInterpolation), -forwardSpeedLimit, forwardSpeedLimit);
+
+        // Get the relative vector
+        Vector3 relativeVector = cameraProxy.InverseTransformDirection(input);
+
+        // Pass in the raw input values into the animator
+        playerAnimator.SetFloat("Input: Left-Right", relativeVector.x);
+        playerAnimator.SetFloat("Input: Fwd-Bwd", relativeVector.z);
+
+        velocityX = Mathf.Lerp(velocityX, relativeVector.x, turnInterpolation);
+        velocityZ = Mathf.Lerp(velocityZ, Mathf.Abs(relativeVector.z), fwdInterpolation);
+
+        // Filter out the weird small double values that Lerp returns
+        if (velocityZ > -0.01 && velocityZ < 0.01)
+        {
+            velocityZ = 0;
+        }
+        if (velocityX > -0.01 && velocityX < 0.01)
+        {
+            velocityX = 0;
+        }
+
         //// BEGIN ANALOG ON KEYBOARD DEMO CODE
         //if (Input.GetKey(KeyCode.Q))
         //    h = -0.5f;
@@ -85,30 +108,6 @@ public class PlayerMovement : MonoBehaviour {
         //else if (Input.GetKeyUp(KeyCode.Alpha0))
         //    forwardSpeedLimit = 1.0f;
         //// END ANALOG ON KEYBOARD DEMO CODE  
-
-        //// Do some filtering of our input as well as clamp to a speed limit
-        //filteredForwardInput = Mathf.Clamp(Mathf.Lerp(filteredForwardInput, v, Time.deltaTime * forwardInputFilter), -forwardSpeedLimit, forwardSpeedLimit);
-        //filteredTurnInput = Mathf.Lerp(filteredTurnInput, h, Time.deltaTime * turnInputFilter);
-
-        // Get the relative vector
-        Vector3 relativeVector = cameraProxy.InverseTransformDirection(input);
-
-        // Pass in the raw input values into the animator
-        playerAnimator.SetFloat("Input: Left-Right", relativeVector.x);
-        playerAnimator.SetFloat("Input: Fwd-Bwd", relativeVector.z);
-
-        velocityX = Mathf.Lerp(velocityX, relativeVector.x, turnInterpolation);
-        velocityZ = Mathf.Lerp(velocityZ, Mathf.Abs(relativeVector.z), fwdInterpolation);
-
-        // Filter out the weird small double values that Lerp returns
-        if (velocityZ > -0.01 && velocityZ < 0.01)
-        {
-            velocityZ = 0;
-        }
-        if (velocityX > -0.01 && velocityX < 0.01)
-        {
-            velocityX = 0;
-        }
 
         // Finally pass the processed input values to the animator
         playerAnimator.SetFloat("VelocityZ", velocityZ);    // set our animator's float parameter 'Speed' equal to the vertical input axis
