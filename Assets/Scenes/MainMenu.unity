@@ -127,7 +127,7 @@ Prefab:
     - target: {fileID: 224845954220712824, guid: e930199ca8f8ff04a965520cce247e1f,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 25
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 224845954220712824, guid: e930199ca8f8ff04a965520cce247e1f,
         type: 2}
@@ -1206,7 +1206,7 @@ Prefab:
     - target: {fileID: 224845954220712824, guid: e930199ca8f8ff04a965520cce247e1f,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: -25
+      value: 14.999998
       objectReference: {fileID: 0}
     - target: {fileID: 224845954220712824, guid: e930199ca8f8ff04a965520cce247e1f,
         type: 2}
@@ -1915,7 +1915,7 @@ Prefab:
     - target: {fileID: 224845954220712824, guid: e930199ca8f8ff04a965520cce247e1f,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: -75
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 224845954220712824, guid: e930199ca8f8ff04a965520cce247e1f,
         type: 2}
@@ -2208,20 +2208,21 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 0089e361c7285e04391a8afa3f749dea, type: 3}
-    m_FontSize: 30
+    m_FontSize: 24
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 40
-    m_Alignment: 3
+    m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Andy\x03\x03\x03 - Did some stuff\n\nAlex\x03\x03\x03 - Did some stuff\n\nChristine\x03\x03\x03
-    - Did some stuff\n\nJames\x03\x03\x03 - Did some stuff\n\nNikki\x03\x03\x03\x03\x03
-    - Did some stuff"
+  m_Text: "Andy\x03\x03\x03 - Did some stuff\nAlex\x03\x03\x03 - Did some stuff\nChristine\x03\x03\x03
+    - Did some stuff\nJames\x03\x03\x03 - Did some stuff\nNikki\x03\x03\x03\x03\x03
+    - Did some stuff\n\nChalkboard texture from mattiamc of DeviantArt\nBackground
+    video from Metal Horse Productions"
 --- !u!222 &1643149323
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2607,7 +2608,7 @@ Prefab:
     - target: {fileID: 224845954220712824, guid: e930199ca8f8ff04a965520cce247e1f,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 75
+      value: 54
       objectReference: {fileID: 0}
     - target: {fileID: 224845954220712824, guid: e930199ca8f8ff04a965520cce247e1f,
         type: 2}
