@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 224324434868940572}
   - component: {fileID: 222325085938146064}
   - component: {fileID: 114364635882048328}
-  - component: {fileID: 114051034368819170}
+  - component: {fileID: 114112369051711614}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -66,19 +66,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &114051034368819170
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1548949123595800}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78a4d146ef666f447b64230579fa68c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  letterPaused: 0.01
-  textComp: {fileID: 114364635882048328}
 --- !u!114 &114058526328575904
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -93,6 +80,19 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
   m_EffectDistance: {x: 3, y: -3}
   m_UseGraphicAlpha: 1
+--- !u!114 &114112369051711614
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1548949123595800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b506946c8d78c2d4cbbbc5872ba931c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  letterPaused: 0.01
+  textComp: {fileID: 114364635882048328}
 --- !u!114 &114181622480416992
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -127,7 +127,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 0089e361c7285e04391a8afa3f749dea, type: 3}
+    m_Font: {fileID: 12800000, guid: 01e17771f0e465d4791045028e483cbd, type: 3}
     m_FontSize: 28
     m_FontStyle: 0
     m_BestFit: 0
@@ -211,7 +211,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 12034e8fcef2b0d43a1d75547401fcbf, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1adcdc1b9cdcb194381946720a996fcd, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
