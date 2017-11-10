@@ -1604,6 +1604,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1239154308}
   - component: {fileID: 1239154307}
+  - component: {fileID: 1239154309}
   m_Layer: 0
   m_Name: MenuManager
   m_TagString: Untagged
@@ -1635,6 +1636,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1239154309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1239154306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19b502f8c431c5c4f9c45c6067edc92d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  camera: {fileID: 312400786}
 --- !u!1 &1290115129
 GameObject:
   m_ObjectHideFlags: 0
