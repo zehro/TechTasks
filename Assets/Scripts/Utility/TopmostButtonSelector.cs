@@ -43,7 +43,6 @@ public class TopmostButtonSelector : MonoBehaviour {
             }
         }
         lastMousePosition = Input.mousePosition;
-        Debug.Log(currentControl);
     }
 
     private void DetermineLastInput() {
