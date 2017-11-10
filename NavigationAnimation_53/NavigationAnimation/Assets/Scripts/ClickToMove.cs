@@ -14,14 +14,17 @@ public class ClickToMove : MonoBehaviour {
     public float futureTLimit = 1.5f;
     private MovingCubeScript movingCubeScript;
     private LocomotionSimpleAgent locomotion;
+    public GameObject[] wayPointList;
     private String patrolState = "wayPoint1";
+    private int currWaypointIndex = -1;
     public enum Behavior
     {
         ClickToMove, 
         Patrol,
         Random,
         MovingTarget,
-        Idle
+        Idle,
+        PickARandomWaypoint
     }
     public Behavior behavior = Behavior.Patrol;
 
@@ -112,7 +115,22 @@ public class ClickToMove : MonoBehaviour {
             }
 
 
-        }
+        } else if (behavior == Behavior.PickARandomWaypoint)
+        {
+            if (currWaypointIndex == -1 || locomotion.isComplete(wayPointList[currWaypointIndex].transform.position))
+            {
+                int waypointIndex = UnityEngine.Random.Range(0, wayPointList.Length);
+                while (waypointIndex == currWaypointIndex)
+                {
+                    waypointIndex = UnityEngine.Random.Range(0, wayPointList.Length);
+
+                }
+                currWaypointIndex = waypointIndex;
+                locomotion.setWayPoint(wayPointList[currWaypointIndex].transform.position);
+
+            }
+            
+        } 
 
 
     }
