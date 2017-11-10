@@ -11,13 +11,17 @@ public class ClickToMove : MonoBehaviour {
     public GameObject wayPoint1;
     public GameObject wayPoint2;
     public GameObject movingWaypoint;
+    public float futureTLimit = 1.5f;
+    private MovingCubeScript movingCubeScript;
     private LocomotionSimpleAgent locomotion;
     private String patrolState = "wayPoint1";
     public enum Behavior
     {
         ClickToMove, 
         Patrol,
-        Random
+        Random,
+        MovingTarget,
+        Idle
     }
     public Behavior behavior = Behavior.Patrol;
 
@@ -25,6 +29,7 @@ public class ClickToMove : MonoBehaviour {
 		agent = GetComponent<UnityEngine.AI.NavMeshAgent> ();
         locomotion = GetComponent<LocomotionSimpleAgent>();
         anim = GetComponent<Animator>();
+        movingCubeScript = movingWaypoint.GetComponent<MovingCubeScript>();
 
     }
 	void Update () {
@@ -47,11 +52,11 @@ public class ClickToMove : MonoBehaviour {
                 print("wayPoint1");
                 locomotion.setWayPoint(wayPoint1.transform.position);
                 patrolState = "waiting to complete 1";
-                print(Vector3.Magnitude(transform.position - wayPoint2.transform.position));
+                //print(Vector3.Magnitude(transform.position - wayPoint2.transform.position));
 
             } else if (patrolState == "waiting to complete 1")
             {
-                if (Vector3.Magnitude(transform.position - wayPoint1.transform.position) < 1.5f)
+                if (locomotion.isComplete(wayPoint1.transform.position))
                 {
                     print("wayPoint2");
                     locomotion.setWayPoint(wayPoint2.transform.position);
@@ -62,7 +67,7 @@ public class ClickToMove : MonoBehaviour {
 
             } else if (patrolState == "waiting to complete 2")
             {
-                if (Vector3.Magnitude(transform.position - wayPoint2.transform.position) < 1.5f)
+                if (locomotion.isComplete(wayPoint2.transform.position))
                 {
                     print("wayPoint1 (new state)");
                     locomotion.setWayPoint(wayPoint1.transform.position);
@@ -74,8 +79,41 @@ public class ClickToMove : MonoBehaviour {
             
             
 
+        } else if (behavior == Behavior.MovingTarget)
+        {
+            //anim.SetBool("walk", false);
+            locomotion.shouldWalk(false);
+
+            if (!locomotion.isComplete(movingWaypoint.transform.position))
+            {
+                
+                //dist between moving object and NPC 
+                float dist = (movingWaypoint.transform.position - transform.position).magnitude;
+
+                //a super simple mapping of dist to time in sec:
+                //feel free to come up with something better
+                //you can also use the equations from the Gamasutra projectile article
+                //detailed in the assignment PDF for a more accurate method
+                float futureT = 0.1f * dist;
+                print(futureT);
+
+                futureT = Mathf.Min(futureT, futureTLimit); //limit on how far ahead to look
+                                                            //timeBetweenPredictions = futureT * 900f;
+                                                            //extrapolate assuming constant Vel and the futureT intercept estimate
+                Vector3 futureMoverPos = movingWaypoint.transform.position + new Vector3(movingCubeScript.SpeedX, 0, movingCubeScript.SpeedZ) * futureT;
+
+                //update the target waypoint
+                locomotion.setWayPoint(futureMoverPos);
+  
+
+            } else
+            {
+                behavior = Behavior.Idle;
+            }
+
+
         }
 
 
-	}
+    }
 }

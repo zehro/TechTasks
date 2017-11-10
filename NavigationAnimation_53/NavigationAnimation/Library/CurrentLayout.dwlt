@@ -20,7 +20,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 5}
-  m_MinSize: {x: 950, y: 442}
+  m_MinSize: {x: 950, y: 421}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &2
 MonoBehaviour:
@@ -67,8 +67,8 @@ MonoBehaviour:
     y: 0
     width: 234
     height: 587
-  m_MinSize: {x: 234, y: 392}
-  m_MaxSize: {x: 10004, y: 14042}
+  m_MinSize: {x: 234, y: 371}
+  m_MaxSize: {x: 10004, y: 14021}
   vertical: 1
   controlID: 115
 --- !u!114 &4
@@ -90,10 +90,10 @@ MonoBehaviour:
     y: 30
     width: 1280
     height: 587
-  m_MinSize: {x: 713, y: 392}
-  m_MaxSize: {x: 18008, y: 14042}
+  m_MinSize: {x: 709, y: 371}
+  m_MaxSize: {x: 18006, y: 14021}
   vertical: 1
-  controlID: 181
+  controlID: 113
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -115,7 +115,7 @@ MonoBehaviour:
     y: 0
     width: 1280
     height: 637
-  m_MinSize: {x: 950, y: 442}
+  m_MinSize: {x: 950, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &6
 MonoBehaviour:
@@ -159,10 +159,10 @@ MonoBehaviour:
     y: 0
     width: 1280
     height: 587
-  m_MinSize: {x: 713, y: 392}
-  m_MaxSize: {x: 18008, y: 14042}
+  m_MinSize: {x: 709, y: 371}
+  m_MaxSize: {x: 18006, y: 14021}
   vertical: 0
-  controlID: 182
+  controlID: 114
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -203,8 +203,8 @@ MonoBehaviour:
     y: 0
     width: 768
     height: 587
-  m_MinSize: {x: 202, y: 342}
-  m_MaxSize: {x: 4002, y: 8042}
+  m_MinSize: {x: 200, y: 321}
+  m_MaxSize: {x: 4002, y: 8021}
   vertical: 1
   controlID: 25
 --- !u!114 &10
@@ -225,8 +225,8 @@ MonoBehaviour:
     y: 0
     width: 234
     height: 252
-  m_MinSize: {x: 104, y: 121}
-  m_MaxSize: {x: 4004, y: 4021}
+  m_MinSize: {x: 100, y: 100}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 15}
   m_Panes:
   - {fileID: 15}
@@ -250,8 +250,8 @@ MonoBehaviour:
     y: 0
     width: 278
     height: 587
-  m_MinSize: {x: 277, y: 71}
-  m_MaxSize: {x: 4002, y: 4021}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 19}
   m_Panes:
   - {fileID: 19}
@@ -303,8 +303,8 @@ MonoBehaviour:
     y: 288
     width: 768
     height: 299
-  m_MinSize: {x: 202, y: 221}
-  m_MaxSize: {x: 4002, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 21}
   m_Panes:
   - {fileID: 21}
@@ -365,8 +365,8 @@ MonoBehaviour:
     height: 231
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: c42b0000
-    m_LastClickedID: 11204
+    m_SelectedIDs: 682e0000
+    m_LastClickedID: 0
     m_ExpandedIDs: 1afcffff00000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -480,21 +480,18 @@ MonoBehaviour:
     - {fileID: 110200000, guid: 4ff1f17465438493daaeed8275d7457c, type: 2}
     - {fileID: 1102389662064163786, guid: 4ff1f17465438493daaeed8275d7457c, type: 2}
     m_ValueSerializationHelper:
-    - {x: 459.6, y: 460.2}
-    - {x: 421.20004, y: 327.2}
+    - {x: 459.6, y: 327.2}
+    - {x: 519.60004, y: 244.20001}
     - {x: 304.60004, y: 330.40002}
     - {x: 349.2, y: 120.400024}
     - {x: 349.2, y: 384}
     - {x: 421.20004, y: 269.40002}
-    - {x: 389.6, y: 155.20001}
+    - {x: 389.6, y: 275.2}
   m_PreviewAnimator: {fileID: 0}
   m_AnimatorController: {fileID: 9100000, guid: 4ff1f17465438493daaeed8275d7457c,
     type: 2}
   m_BreadCrumbs:
   - m_Target: {fileID: 110700000, guid: 4ff1f17465438493daaeed8275d7457c, type: 2}
-    m_ScrollPosition: {x: 0, y: 0}
-  - m_Target: {fileID: 1102389662064163786, guid: 4ff1f17465438493daaeed8275d7457c,
-      type: 2}
     m_ScrollPosition: {x: 0, y: 0}
   stateMachineGraph: {fileID: 0}
   stateMachineGraphGUI: {fileID: 0}
@@ -532,7 +529,7 @@ MonoBehaviour:
     y: 92
     width: 276
     height: 566
-  m_ScrollPosition: {x: 0, y: 240}
+  m_ScrollPosition: {x: 0, y: 0}
   m_InspectorMode: 0
   m_PreviewResizer:
     m_CachedPref: 198
@@ -577,18 +574,18 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets
+    - Assets/Scripts
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets
+  - Assets/Scripts
   m_LastFoldersGridSize: 16
   m_LastProjectPath: C:\Users\lubch\Desktop\CS4455\TechTasks\NavigationAnimation_53\NavigationAnimation
   m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 0e260000
-    m_LastClickedID: 9742
+    m_SelectedIDs: c82a0000
+    m_LastClickedID: 10952
     m_ExpandedIDs: 000000000e2600001a2a0000de2a0000ffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -644,22 +641,22 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 0
-    m_ExpandedInstanceIDs: aa2f0000c22b000002280000bc2f00003e260000822c0000ca26000042280000de270000be2f0000be2d0000c02d0000842c000040260000c02f0000442800005c2c000076280000ee270000b02f0000362d0000382d00007828000048280000c42f0000c22d0000862c0000c22f000046280000ce2600000e2f00007a2a00007e7302002e43050026430500d2770200b82b0000b62b000032a20100c82f0000062800005e2a0000f62b0000d02b000000000000b0b7050034b70500fc7e0000e4310000242c0000dc2c00000c28000026310000a63200000a32000020310000a43300002a300000b62600008a2600002e260000a2300000a83300005431000048260000a22600001c310000722600005e26000014320000703100002633000090280000ca2a000086270000ae2700003e2a0000d42800009e290000142b000042270000
+    m_HadKeyboardFocusLastEvent: 1
+    m_ExpandedInstanceIDs: aa2f0000c22b000002280000bc2f00003e260000822c0000ca26000042280000de270000be2f0000be2d0000c02d0000842c000040260000c02f0000442800005c2c000076280000ee270000b02f0000362d0000382d00007828000048280000c42f0000c22d0000862c0000c22f000046280000ce2600000e2f00007a2a00007e7302002e43050026430500d2770200b82b0000b62b000032a20100c82f0000062800005e2a0000f62b0000d02b000000000000b0b7050034b70500fc7e0000e4310000242c0000dc2c00000c28000026310000a63200000a32000020310000a43300002a300000b62600008a2600002e260000a2300000a83300005431000048260000a22600001c310000722600005e26000014320000703100002633000090280000ca2a0000ae2700003e2a0000d42800009e290000142b00004227000086270000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: 
-      m_OriginalName: 
+      m_Name: MovingCubeScript
+      m_OriginalName: MovingCubeScript
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 0
+      m_UserData: 13402
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 11
+      m_OriginalEventType: 0
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 2}
     m_CreateAssetUtility:

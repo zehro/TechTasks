@@ -9,6 +9,7 @@ public class LocomotionSimpleAgent : MonoBehaviour {
 	Vector2 velocity = Vector2.zero;
     public bool shouldMove;
     public bool walk;
+    public float isCompleteDistance = 1.5f;
 
 	void Start () {
 		anim = GetComponent<Animator> ();
@@ -24,7 +25,14 @@ public class LocomotionSimpleAgent : MonoBehaviour {
 
     public void shouldWalk(bool shouldWalk)
     {
+        print("hey");
+        walk = shouldWalk;
         anim.SetBool("walk", shouldWalk);
+    }
+    public bool isComplete(Vector3 pos)
+    {
+        return Vector3.Magnitude(transform.position - pos) < 1.5f;
+
     }
 
     void Update () {
