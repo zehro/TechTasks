@@ -13,6 +13,7 @@ public class PauseMenuManager : MonoBehaviour {
     private bool isGameRunning;
 
     public void GoToMainMenu() {
+        Time.timeScale = DEFAULT_TIME;
         SceneManager.LoadScene("MainMenu");
     }
 
