@@ -399,6 +399,7 @@ RectTransform:
   - {fileID: 1323844517}
   - {fileID: 252550648}
   - {fileID: 1468653923}
+  - {fileID: 614869686}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -940,6 +941,67 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &614869685
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 614869686}
+  - component: {fileID: 614869687}
+  m_Layer: 0
+  m_Name: GA Tech Timelapse
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &614869686
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 614869685}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -5.196152, z: -467.6537}
+  m_LocalScale: {x: 5.196152, y: 5.196152, z: 5.196152}
+  m_Children: []
+  m_Father: {fileID: 127100249}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!328 &614869687
+VideoPlayer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 614869685}
+  m_Enabled: 1
+  m_VideoClip: {fileID: 32900000, guid: a8baa4a425c941447855b8fb6fd45260, type: 3}
+  m_TargetCameraAlpha: 0
+  m_TargetCamera: {fileID: 312400786}
+  m_TargetTexture: {fileID: 0}
+  m_TimeReference: 0
+  m_TargetMaterialRenderer: {fileID: 0}
+  m_TargetMaterialProperty: _MainTex
+  m_RenderMode: 0
+  m_AspectRatio: 5
+  m_DataSource: 0
+  m_PlaybackSpeed: 1
+  m_AudioOutputMode: 1
+  m_TargetAudioSources:
+  - {fileID: 0}
+  m_DirectAudioVolumes:
+  - 1
+  m_Url: 
+  m_EnabledAudioTracks: 01
+  m_DirectAudioMutes: 00
+  m_ControlledAudioTrackCount: 1
+  m_PlayOnAwake: 1
+  m_SkipOnDrop: 1
+  m_Looping: 1
+  m_WaitForFirstFrame: 1
+  m_FrameReadyEventEnabled: 0
 --- !u!1 &712340838
 GameObject:
   m_ObjectHideFlags: 0
@@ -1647,7 +1709,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19b502f8c431c5c4f9c45c6067edc92d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camera: {fileID: 312400786}
 --- !u!1 &1290115129
 GameObject:
   m_ObjectHideFlags: 0
