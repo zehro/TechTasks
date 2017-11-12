@@ -55,7 +55,7 @@ public class LocomotionSimpleAgent : MonoBehaviour {
 		shouldMove = velocity.magnitude > 0.5f && agent.remainingDistance > agent.radius;
         velocity.x = Mathf.Clamp(velocity.x, -0.5f, 0.5f);
         velocity.y = Mathf.Clamp(velocity.y, 0f, 2.7f);
-        velocity.x = Mathf.Lerp(velocity.x, agent.velocity.x, 2f * Time.deltaTime);
+        velocity.x = Mathf.Lerp(velocity.x, agent.velocity.x,5f * Time.deltaTime);
         velocity.y = Mathf.Lerp(velocity.y, agent.velocity.y, 5 * Time.deltaTime);
 
 
