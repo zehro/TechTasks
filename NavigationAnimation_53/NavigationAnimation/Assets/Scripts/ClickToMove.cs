@@ -98,7 +98,7 @@ public class ClickToMove : MonoBehaviour {
                 //you can also use the equations from the Gamasutra projectile article
                 //detailed in the assignment PDF for a more accurate method
                 float futureT = 0.1f * dist;
-                print(futureT);
+                //print(futureT);
 
                 futureT = Mathf.Min(futureT, futureTLimit); //limit on how far ahead to look
                                                             //timeBetweenPredictions = futureT * 900f;

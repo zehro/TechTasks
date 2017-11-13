@@ -43,7 +43,7 @@ public class MovingCubeScript : MonoBehaviour
 		}
 		*/
         //position.x = Mathf.Lerp (A, B, Mathf.Sin(time));
-        print(moveCube);
+        //print(moveCube);
         float origPosX = transform.position.x;
         float origPosZ = transform.position.z;
         if (moveCube)

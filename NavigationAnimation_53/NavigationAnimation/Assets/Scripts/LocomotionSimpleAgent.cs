@@ -25,7 +25,6 @@ public class LocomotionSimpleAgent : MonoBehaviour {
 
     public void shouldWalk(bool shouldWalk)
     {
-        print("hey");
         walk = shouldWalk;
         anim.SetBool("walk", shouldWalk);
     }
