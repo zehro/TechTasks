@@ -106,8 +106,9 @@ public class Task : MonoBehaviour, IComparable<Task> {
 
     public void InitializeValues(string objectiveName, int totalSecondsToComplete) {
         this.ObjectiveName = objectiveName;
+        float fuzziness = UnityEngine.Random.value * 0.01f; // So the time sorter doesn't flicker from two tasks having the exact same times
         this.totalSeconds = totalSecondsToComplete;
-        this.Seconds = totalSecondsToComplete;
+        this.Seconds = totalSecondsToComplete + fuzziness;
         this.CircleFill = 1;
     }
 

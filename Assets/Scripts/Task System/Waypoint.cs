@@ -9,6 +9,9 @@ public class Waypoint : MonoBehaviour {
     [SerializeField]
     private new MeshRenderer renderer;
 
+    [SerializeField]
+    private string nameOfPoint;
+
     private int taskID;
     private int pointsWorth;
     private bool isActive;
@@ -29,6 +32,12 @@ public class Waypoint : MonoBehaviour {
                 _score = FindObjectOfType<ScoreManager>();
             }
             return _score;
+        }
+    }
+
+    public string WaypointName {
+        get {
+            return nameOfPoint;
         }
     }
 
@@ -58,7 +67,7 @@ public class Waypoint : MonoBehaviour {
     private IEnumerator BecomeActiveWaypoint(int duration) {
         renderer.enabled = true;
         yield return new WaitForSeconds(duration);
-        Score.AddMissedTask();
+        Score.AddMissedTask(pointsWorth);
         renderer.enabled = false;
     }
 }

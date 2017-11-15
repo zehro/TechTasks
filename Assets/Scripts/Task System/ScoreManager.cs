@@ -16,17 +16,28 @@ public class ScoreManager : MonoBehaviour {
     private int score;
     private int missed;
 
+    public int Score {
+        get {
+            return score;
+        }
+    }
+
     // TODO some fancy adding animation
     public void AddToScore(int amount) {
         score += amount;
     }
 
-    public void AddMissedTask() {
+    public void AddMissedTask(int scoreToDeduct) {
         this.missed++;
-        missedText.text += MISSED_MARK;
     }
 
     private void Update() {
+        this.missedText.text = missed.ToString();
         this.scoreText.text = score.ToString();
+        if (score < 0) {
+            scoreText.color = Color.red;
+        } else {
+            scoreText.color = Color.green;
+        }
     }
 }
