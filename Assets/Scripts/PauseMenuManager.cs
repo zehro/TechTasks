@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PauseMenuManager : MonoBehaviour {
-    private const string GAME_OVER_TEXT = "Game over!\n\nPoints\n{0}/{1}";
+    private const string GAME_OVER_TEXT = "You obtained all the stars in {0}! Wow!";
     private const int DEFAULT_TIME = 1;
 
     private const int PAUSE_TIME = 0;
@@ -30,10 +30,10 @@ public class PauseMenuManager : MonoBehaviour {
         Debug.Log("No settings yet.");
     }
 
-    public void DoGameOver(int highestPossibleScore) {
+    public void DoGameOver(string gameEndTime) {
         if (isGameRunning) {
             TogglePause(() => {
-                gameOverMenu.Header = string.Format(GAME_OVER_TEXT, score.Score, highestPossibleScore);
+                gameOverMenu.Header = string.Format(GAME_OVER_TEXT, gameEndTime);
                 gameOverMenu.gameObject.SetActive(true);
             });
         }

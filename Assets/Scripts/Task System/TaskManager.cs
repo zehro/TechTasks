@@ -57,7 +57,7 @@ public class TaskManager : MonoBehaviour {
             }
             yield return new WaitForSeconds(task.SecondsUntilNextTaskGroup);
         }
-        pause.DoGameOver(highestPossibleScore);
+        pause.DoGameOver("null"); // FIXME
     }
 
     private void AddTask(int duration, Waypoint waypoint, string objectiveName, int score) {
