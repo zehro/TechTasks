@@ -1,8 +1,9 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
 [RequireComponent (typeof (UnityEngine.AI.NavMeshAgent))]
-[RequireComponent (typeof (Animator))]
-public class LocomotionSimpleAgent : MonoBehaviour {
+public class AIMovement : MonoBehaviour {
 	Animator anim;
 	UnityEngine.AI.NavMeshAgent agent;
 	Vector2 smoothDeltaPosition = Vector2.zero;

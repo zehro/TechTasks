@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  offset: {x: 0, y: 2, z: -4}
+  offset: {x: 0, y: 2, z: -5}
   pitchSpeed: 4
   yawSpeed: 4
 --- !u!124 &124446080390738116

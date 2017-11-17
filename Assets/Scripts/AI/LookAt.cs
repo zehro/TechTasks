@@ -1,6 +1,6 @@
-﻿// LookAt.cs
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-using System.Collections;
 
 [RequireComponent (typeof (Animator))]
 public class LookAt : MonoBehaviour {

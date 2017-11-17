@@ -1,6 +1,7 @@
-﻿// ClickToMove.cs
-using System;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 [RequireComponent (typeof (UnityEngine.AI.NavMeshAgent))]
 public class ClickToMove : MonoBehaviour {
@@ -13,7 +14,7 @@ public class ClickToMove : MonoBehaviour {
     public GameObject movingWaypoint;
     public float futureTLimit = 1.5f;
     //private MovingCubeScript movingCubeScript;
-    private LocomotionSimpleAgent locomotion;
+    private AIMovement locomotion;
     public GameObject[] wayPointList;
     private String patrolState = "wayPoint1";
     private int currWaypointIndex = -1;
@@ -30,7 +31,7 @@ public class ClickToMove : MonoBehaviour {
 
 	void Start () {
 		agent = GetComponent<UnityEngine.AI.NavMeshAgent> ();
-        locomotion = GetComponent<LocomotionSimpleAgent>();
+        locomotion = GetComponent<AIMovement>();
         anim = GetComponent<Animator>();
         //movingCubeScript = movingWaypoint.GetComponent<MovingCubeScript>();
 
