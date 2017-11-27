@@ -156,59 +156,59 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Buttons
-    second: {fileID: 2100000, guid: 7b5460cbbbfa5494a8887554bf24f898, type: 2}
+    second: {fileID: 2100000, guid: 3136600792903064680d534a7555edbf, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Eyes
-    second: {fileID: 2100000, guid: 45b17ad6f571b3749a754a48125112d0, type: 2}
+    second: {fileID: 2100000, guid: da9d010ee2164e7468f1e014bffed584, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Gloves
-    second: {fileID: 2100000, guid: 1234263a99576d146850c505ee4d8b7b, type: 2}
+    second: {fileID: 2100000, guid: 77a01c18ee5f9a54086514d7607fdef5, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Hair
-    second: {fileID: 2100000, guid: a7bc525db8b5f6f46b314a61cc2386ce, type: 2}
+    second: {fileID: 2100000, guid: f85add76bbd8c8d4ba9cd8d38865d4f0, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Hair_Piece
-    second: {fileID: 2100000, guid: 8efdd879280eced488f53fe249a93156, type: 2}
+    second: {fileID: 2100000, guid: bbb5efa6bd3ecec43b6dde1c868205f5, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Logo
-    second: {fileID: 2100000, guid: 0d0639ecc092d6540b87aac184e94a84, type: 2}
+    second: {fileID: 2100000, guid: 228b54a2cb7ad8d49a5267fa158bfeb3, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Moustache
-    second: {fileID: 2100000, guid: 53eebb5ebe2a8b64c9d004f5ec5ba2ec, type: 2}
+    second: {fileID: 2100000, guid: d693ff1f8fab9c340b3f03032b756dea, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Overalls
-    second: {fileID: 2100000, guid: 3dad47f6dccbce64d8c52f48efa41db4, type: 2}
+    second: {fileID: 2100000, guid: ef7a08d2e0063bf48a466a98b14f28ad, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Shirt_Cap
-    second: {fileID: 2100000, guid: a00bb64ad4091ad42b404ed74a636b3e, type: 2}
+    second: {fileID: 2100000, guid: c6ef7e1ca53bb9f459b800f18eed18ea, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Shoes
-    second: {fileID: 2100000, guid: f513d468d109a0a42bdc0af986ce6e23, type: 2}
+    second: {fileID: 2100000, guid: 128a4d6a1555d374488d1a96e0a26a5a, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Skin
-    second: {fileID: 2100000, guid: af54230371388524fafb7185c1dfd520, type: 2}
+    second: {fileID: 2100000, guid: aecb1ad4afcdc114a85de0791049e1ba, type: 2}
   materials:
-    importMaterials: 1
+    importMaterials: 0
     materialName: 0
     materialSearch: 1
     materialLocation: 0

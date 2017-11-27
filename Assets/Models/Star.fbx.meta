@@ -15,14 +15,14 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Material_063_3ED452ED_c_bmp
-    second: {fileID: 2100000, guid: 5be195eba098cbd4b91c78b385153b34, type: 2}
+    second: {fileID: 2100000, guid: f0f7227302585624387b77bd5e4fa911, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Material_065_713E77D_c_bmp
-    second: {fileID: 2100000, guid: c599067db919b764287688f1c513ef0d, type: 2}
+    second: {fileID: 2100000, guid: ac75fc3d9ac36674e9af49ad6133b22b, type: 2}
   materials:
-    importMaterials: 1
+    importMaterials: 0
     materialName: 0
     materialSearch: 1
     materialLocation: 0
