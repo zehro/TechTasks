@@ -21,6 +21,7 @@ public class PlayerMovement : MonoBehaviour
     public float fwdInterpolation = 0.05f;
     public float turnInterpolation = 0.05f;
     public float speedScale = 2f;
+    public float gravityScale = 3f;
     private Vector3 relativeVector;
     private Vector3 animRootDifference;
     private Vector3 lastAnimVelocity;
@@ -31,7 +32,8 @@ public class PlayerMovement : MonoBehaviour
         get { return groundContacts > 0; }
     }
     private int groundContacts = 0;
-    private float rayOriginOffset = 1f;
+    private float rayOriginOffset = 0.5f;
+    private float rayDepth = 1f;
     private RaycastHit hit;
     private int layerMask = ~(1 << 8);
 
@@ -119,12 +121,10 @@ public class PlayerMovement : MonoBehaviour
                 playerAnimator.SetBool("isFalling", true);
             }
 
-            float rayDepth = 3 + (Mathf.Pow(-velocityY, 2) * Time.deltaTime);
-
             Ray ray = new Ray(this.transform.position + Vector3.up * rayOriginOffset, Vector3.down);
 
             //Cast ray and look for ground. If ground is close, then transition out of falling animation
-            if (Physics.Raycast(ray, out hit, rayOriginOffset + rayDepth, layerMask))
+            if (Physics.Raycast(ray, out hit, rayOriginOffset + rayDepth + (Mathf.Pow(-velocityY, 2) * Time.deltaTime), layerMask))
             {
                 if (IsGround(hit.collider.gameObject))
                 {
@@ -138,7 +138,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         // Handle jumping
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             StartCoroutine(MakeJump());
         }
@@ -168,7 +168,7 @@ public class PlayerMovement : MonoBehaviour
         {
             // Moves the character slightly with input (for falling, jumping)
             playerRigidbody.velocity = lastAnimVelocity;
-            lastAnimVelocity += Vector3.down * 0.2f;
+            lastAnimVelocity += (input + (Vector3.down * gravityScale)) * Time.deltaTime;
         }
         else
         {
@@ -181,7 +181,7 @@ public class PlayerMovement : MonoBehaviour
             transform.rotation = playerAnimator.rootRotation;
 
             // Keep track of the current animator velocity
-            lastAnimVelocity = playerAnimator.velocity * 2f;
+            lastAnimVelocity = playerAnimator.velocity * speedScale;
         }
     }
 
@@ -213,7 +213,5 @@ public class PlayerMovement : MonoBehaviour
             timer += Time.deltaTime;
             yield return null;
         }
-
-        //jumping = false;
     }
 }
