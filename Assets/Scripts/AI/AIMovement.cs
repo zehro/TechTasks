@@ -1,12 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
-[RequireComponent (typeof (UnityEngine.AI.NavMeshAgent))]
+[RequireComponent (typeof (NavMeshAgent))]
 public class AIMovement : MonoBehaviour {
-	Animator anim;
-	UnityEngine.AI.NavMeshAgent agent;
-	Vector2 smoothDeltaPosition = Vector2.zero;
+    NavMeshAgent navagent;
+    Animator aiAnimator;
+
+    public float agentCaptureRadius = 1.5f;
+
+    public bool isComplete(Vector3 target)
+    {
+        get { return Vector3.Magnitude(transform.position - target) < agentCaptureRadius; }
+    }
+
+    Vector2 smoothDeltaPosition = Vector2.zero;
 	Vector2 velocity = Vector2.zero;
     public bool shouldMove;
     public bool walk;
@@ -14,26 +23,33 @@ public class AIMovement : MonoBehaviour {
 
 	void Start () {
 		anim = GetComponent<Animator> ();
-		agent = GetComponent<UnityEngine.AI.NavMeshAgent> ();
+		agent = GetComponent<NavMeshAgent> ();
 		agent.updatePosition = false;
         anim.SetBool("walk", walk);
     }
-    public void setWayPoint(Vector3 point)
-    {
-        agent.destination = point;
 
+    public void setWayPoint(Transform newWaypoint)
+    {
+        navagent.destination = newWaypoint.position;
     }
 
-    public void shouldWalk(bool shouldWalk)
+    public void setWaypoints(Transform[] newWaypoints)
     {
-        walk = shouldWalk;
-        anim.SetBool("walk", shouldWalk);
-    }
-    public bool isComplete(Vector3 pos)
-    {
-        return Vector3.Magnitude(transform.position - pos) < 1.5f;
+        if (newWaypoints == null)
+        {
+            return;
+        }
 
+        waypoints = new Transform[newWaypoints.Length];
+
+        for (int i = 0; i < waypoints.Length; i++)
+        {
+            waypoints[i] = newWaypoints[i];
+        }
     }
+
+
+
 
     void Update () {
         anim.SetBool("walk", walk);
