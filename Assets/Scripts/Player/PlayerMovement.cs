@@ -31,11 +31,11 @@ public class PlayerMovement : MonoBehaviour
     {
         get { return groundContacts > 0; }
     }
-    private int groundContacts = 0;
+    public int groundContacts = 0;
     private float rayOriginOffset = 0.5f;
     private float rayDepth = 1f;
     private RaycastHit hit;
-    private int layerMask = ~(1 << 8);
+    private int layerMask = (1 << 9); //~(1 << 8);
 
     // Jumping variables
     public bool jumpButtonPressed
@@ -128,6 +128,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 if (IsGround(hit.collider.gameObject))
                 {
+                    Debug.Log(hit.collider.gameObject.tag);
                     // Turning falling back off because we are close to the ground
                     playerAnimator.SetBool("isFalling", false);
                 }
