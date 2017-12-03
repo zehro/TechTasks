@@ -10,31 +10,31 @@ public class MenuManager : MonoBehaviour {
 		SceneManager.LoadScene (sceneName, LoadSceneMode.Single);
 	}
 
-	public void leaveMenu(string maskName)
+	public void goToMask(string newMaskName)
 	{
-		GameObject oldMask = GameObject.Find("Mask");
+		GameObject mainMenuMask = GameObject.Find("Mask");
 		Transform[] trans = GameObject.Find("Canvas").GetComponentsInChildren<Transform>(true);
-		print (oldMask.name);
-		print (maskName);
+
+		// Find and set currentMask to Active,
+		// Set mainMenuMask to inActive
 		foreach (Transform t in trans) {
-			if (t.gameObject.name == maskName) {
-				print (t.gameObject.name);
-				oldMask.SetActive (false);
+			if (t.gameObject.name == newMaskName) {
+				mainMenuMask.SetActive (false);
 				t.gameObject.SetActive (true);
 			}
 		}
 	}
 
-	public void backToMenu(string maskName)
+	public void backToMainMenu(string currentMaskName)
 	{
-		GameObject oldMask = GameObject.Find(maskName);
+		GameObject currentMenuMask = GameObject.Find(currentMaskName);
 		Transform[] trans = GameObject.Find("Canvas").GetComponentsInChildren<Transform>(true);
-		print (oldMask.name);
-		print (maskName);
+
+		// Set currentMask to inActive,
+		// Find and set mainMenuMask to Active
 		foreach (Transform t in trans) {
 			if (t.gameObject.name == "Mask") {
-				print (t.gameObject.name);
-				oldMask.SetActive (false);
+				currentMenuMask.SetActive (false);
 				t.gameObject.SetActive (true);
 			}
 		}

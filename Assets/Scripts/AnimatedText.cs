@@ -8,8 +8,8 @@ public class AnimatedText : MonoBehaviour {
     private string message;
     public Text textComp;
 
-    // Use this for initialization
-    private void Start() {
+    // Use this for Running Credits Scroller
+    private void OnEnable() {
         textComp = GetComponent<Text>();
         message = textComp.text;
         textComp.text = "";
