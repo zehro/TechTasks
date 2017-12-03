@@ -1913,13 +1913,17 @@ MonoBehaviour:
   turnInterpolation: 0.05
   speedScale: 1.5
   gravityScale: 5
+  groundContacts: 0
   jumpTimeInterval: 1.2
-  jumpForce: 2500
+  jumpForce: 3500
   cameraProxy: {fileID: 4011945263734728}
   groundTags:
-  - Grass
   - Dirt
+  - Dirt Road
+  - Grass
+  - Marble
   - Stone
+  - Wood
 --- !u!114 &114912196904548116
 MonoBehaviour:
   m_ObjectHideFlags: 1

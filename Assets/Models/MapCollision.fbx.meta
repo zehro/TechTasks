@@ -1,21 +1,48 @@
 fileFormatVersion: 2
-guid: d801861239ace6246ab71f273f631572
-timeCreated: 1510780885
+guid: 55006541fd52f5241af3eb9a2c4a32cb
+timeCreated: 1512331063
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: //RootNode
-    400000: //RootNode
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: MapCollision
+    100000: Dirt
+    100002: Dirt Road
+    100004: Grass
+    100006: //RootNode
+    100008: Marble
+    100010: Stone
+    100012: Wood
+    400000: Dirt
+    400002: Dirt Road
+    400004: Grass
+    400006: //RootNode
+    400008: Marble
+    400010: Stone
+    400012: Wood
+    2300000: Dirt
+    2300002: Dirt Road
+    2300004: Grass
+    2300006: Marble
+    2300008: Stone
+    2300010: Wood
+    3300000: Dirt
+    3300002: Dirt Road
+    3300004: Grass
+    3300006: Marble
+    3300008: Stone
+    3300010: Wood
+    4300000: Wood
+    4300002: Dirt Road
+    4300004: Stone
+    4300006: Marble
+    4300008: Dirt
+    4300010: Grass
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: No Name
-    second: {fileID: 2100000, guid: 8820192aa4658c145bf835a5ebe06e2d, type: 2}
+    second: {fileID: 2100000, guid: d76796fb839e9d34299931642bdfe0ea, type: 2}
   materials:
     importMaterials: 0
     materialName: 0
