@@ -128,12 +128,13 @@ public class PlayerMovement : MonoBehaviour
             {
                 if (IsGround(hit.collider.gameObject))
                 {
-                    Debug.Log(hit.collider.gameObject.tag);
                     // Turning falling back off because we are close to the ground
                     playerAnimator.SetBool("isFalling", false);
                 }
             }
         }
+
+        playerRigidbody.angularVelocity = Vector3.zero;
     }
 
     void Update()
@@ -164,12 +165,11 @@ public class PlayerMovement : MonoBehaviour
     // Called when the animator moves
     void OnAnimatorMove()
     {
-        playerRigidbody.angularVelocity = Vector3.zero;
         if (!isGrounded)
         {
             // Moves the character slightly with input (for falling, jumping)
             playerRigidbody.velocity = lastAnimVelocity;
-            lastAnimVelocity += (input + (Vector3.down * gravityScale)) * Time.deltaTime;
+            lastAnimVelocity += ((input * 5f) + (Vector3.down * gravityScale)) * Time.deltaTime;
         }
         else
         {
@@ -179,6 +179,7 @@ public class PlayerMovement : MonoBehaviour
                                     transform.position.x + (animRootDifference.x * speedScale),
                                     playerAnimator.rootPosition.y,
                                     transform.position.z + (animRootDifference.z * speedScale));
+
             transform.rotation = playerAnimator.rootRotation;
 
             // Keep track of the current animator velocity
