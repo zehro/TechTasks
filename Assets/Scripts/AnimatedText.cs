@@ -11,8 +11,6 @@ public class AnimatedText : MonoBehaviour {
     // Use this for Running Credits Scroller
     private void OnEnable() {
 
-    // Use this for initialization
-    private void Start() {
 		// Gets the text to write out
         textComp = GetComponent<Text>();
 
