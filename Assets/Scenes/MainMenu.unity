@@ -243,7 +243,7 @@ Prefab:
     - target: {fileID: 114525410241581574, guid: 5d32905d66b6817488da839c7c5ccb07,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: backToMainMenu
+      value: backToMenu
       objectReference: {fileID: 0}
     - target: {fileID: 114525410241581574, guid: 5d32905d66b6817488da839c7c5ccb07,
         type: 2}
@@ -709,7 +709,7 @@ Prefab:
     - target: {fileID: 224845954220712824, guid: 5d32905d66b6817488da839c7c5ccb07,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: -25
+      value: -24.999996
       objectReference: {fileID: 0}
     - target: {fileID: 224845954220712824, guid: 5d32905d66b6817488da839c7c5ccb07,
         type: 2}
@@ -825,7 +825,7 @@ Prefab:
     - target: {fileID: 114525410241581574, guid: 5d32905d66b6817488da839c7c5ccb07,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: goToMask
+      value: leaveMenu
       objectReference: {fileID: 0}
     - target: {fileID: 114525410241581574, guid: 5d32905d66b6817488da839c7c5ccb07,
         type: 2}
@@ -1217,7 +1217,7 @@ Prefab:
     - target: {fileID: 224845954220712824, guid: 5d32905d66b6817488da839c7c5ccb07,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 75
+      value: 54
       objectReference: {fileID: 0}
     - target: {fileID: 224845954220712824, guid: 5d32905d66b6817488da839c7c5ccb07,
         type: 2}
@@ -1778,7 +1778,7 @@ Prefab:
     - target: {fileID: 224845954220712824, guid: 5d32905d66b6817488da839c7c5ccb07,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: -75
+      value: -49.999985
       objectReference: {fileID: 0}
     - target: {fileID: 224845954220712824, guid: 5d32905d66b6817488da839c7c5ccb07,
         type: 2}
@@ -2169,7 +2169,7 @@ Prefab:
     - target: {fileID: 224845954220712824, guid: 5d32905d66b6817488da839c7c5ccb07,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 25
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224845954220712824, guid: 5d32905d66b6817488da839c7c5ccb07,
         type: 2}
@@ -2295,7 +2295,7 @@ Prefab:
     - target: {fileID: 114525410241581574, guid: 5d32905d66b6817488da839c7c5ccb07,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: goToMask
+      value: leaveMenu
       objectReference: {fileID: 0}
     - target: {fileID: 114525410241581574, guid: 5d32905d66b6817488da839c7c5ccb07,
         type: 2}
@@ -2427,7 +2427,7 @@ Prefab:
     - target: {fileID: 114525410241581574, guid: 5d32905d66b6817488da839c7c5ccb07,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: backToMainMenu
+      value: backToMenu
       objectReference: {fileID: 0}
     - target: {fileID: 114525410241581574, guid: 5d32905d66b6817488da839c7c5ccb07,
         type: 2}
