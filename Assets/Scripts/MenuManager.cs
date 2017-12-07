@@ -5,36 +5,55 @@ using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour {
 
+	// Opens new scene
 	public void changeScene(string sceneName)
 	{
 		SceneManager.LoadScene (sceneName, LoadSceneMode.Single);
 	}
-
-	public void goToMask(string newMaskName)
+		
+	// Leave the main menu and go to sub menu maskName
+	public void leaveMenu(string maskName)
 	{
-		GameObject mainMenuMask = GameObject.Find("Mask");
+		// Get main menu mask
+		GameObject oldMask = GameObject.Find("Mask");
+
+		// Get all children of the canvas
+		// This is necessary because sub menus are all inactive so they cannot be found just using the Find()
+		// method and the name
 		Transform[] trans = GameObject.Find("Canvas").GetComponentsInChildren<Transform>(true);
 
-		// Find and set currentMask to Active,
-		// Set mainMenuMask to inActive
+		// Loop through children until the correct mask is found
 		foreach (Transform t in trans) {
-			if (t.gameObject.name == newMaskName) {
-				mainMenuMask.SetActive (false);
+			if (t.gameObject.name == maskName) {
+				// Set main menu to inactive
+				oldMask.SetActive (false);
+
+				// Set sub menu to active
 				t.gameObject.SetActive (true);
 			}
 		}
 	}
 
-	public void backToMainMenu(string currentMaskName)
+
+	// Leave the current sub menu maskName, which needs to be passed as a parameter
+	// and go back to the main menu
+	public void backToMenu(string maskName)
 	{
-		GameObject currentMenuMask = GameObject.Find(currentMaskName);
+		// Get current sub menu
+		GameObject oldMask = GameObject.Find(maskName);
+
+		// Get all children of the canvas
+		// This is necessary because all masks are inactive, except the current one 
+		// So they cannot be found just using the Find() method and the name
 		Transform[] trans = GameObject.Find("Canvas").GetComponentsInChildren<Transform>(true);
 
-		// Set currentMask to inActive,
-		// Find and set mainMenuMask to Active
+		// Loop through children until the correct mask is found
 		foreach (Transform t in trans) {
 			if (t.gameObject.name == "Mask") {
-				currentMenuMask.SetActive (false);
+				// Set sub menu to inactive
+				oldMask.SetActive (false);
+
+				// Set main menu to active
 				t.gameObject.SetActive (true);
 			}
 		}
