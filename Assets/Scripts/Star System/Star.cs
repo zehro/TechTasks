@@ -14,6 +14,18 @@ public class Star : MonoBehaviour {
         }
     }
 
+    private CollectibleStar collectible;
+
+    public CollectibleStar Collectible {
+        get {
+            return collectible;
+        }
+    }
+
+    public void SetCollectible(CollectibleStar star) {
+        this.collectible = star;
+    }
+
     public void SetColor(bool isBlack) {
         Color = isBlack ? Color.black : Color.white;
     }

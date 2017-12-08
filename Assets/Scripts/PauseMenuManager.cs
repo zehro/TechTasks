@@ -5,6 +5,13 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PauseMenuManager : MonoBehaviour {
+
+    public enum PauseType {
+        NOT_PAUSED,
+        SIGN,
+        MENU
+    }
+
     private const string GAME_OVER_TEXT = "You obtained all the stars in {0}! Wow!";
     private const int DEFAULT_TIME = 1;
 
@@ -14,12 +21,29 @@ public class PauseMenuManager : MonoBehaviour {
     private GameObject pauseMenu;
 
     [SerializeField]
+    private string pauseButton;
+
+    [SerializeField]
+    private SignUIManager sign;
+
+    [SerializeField]
     private GameOverMenu gameOverMenu;
 
     [SerializeField]
     private ScoreManager score;
 
     private bool isGameRunning;
+
+    private PauseType pauseType;
+
+    public PauseType Pause {
+        get {
+            return pauseType;
+        }
+        set {
+            this.pauseType = value;
+        }
+    }
 
     public void GoToMainMenu() {
         Time.timeScale = DEFAULT_TIME;
@@ -39,11 +63,16 @@ public class PauseMenuManager : MonoBehaviour {
         }
     }
 
-    public void TogglePause() {
+    private void TogglePause() {
+        if (this.pauseType == PauseType.NOT_PAUSED) {
+            this.pauseType = PauseType.MENU;
+        } else {
+            this.pauseType = PauseType.NOT_PAUSED;
+        }
         TogglePause(() => pauseMenu.SetActive(!isGameRunning));
     }
 
-    private void TogglePause(Action postCall) {
+    public void TogglePause(Action postCall) {
         if (isGameRunning) {
             Time.timeScale = PAUSE_TIME;
         } else {
@@ -61,7 +90,7 @@ public class PauseMenuManager : MonoBehaviour {
 
     // Update is called once per frame
     private void Update() {
-        if (Input.GetKeyDown(KeyCode.Escape)) {
+        if (Input.GetButtonDown(pauseButton) && pauseType != PauseType.SIGN) {
             TogglePause();
         }
     }

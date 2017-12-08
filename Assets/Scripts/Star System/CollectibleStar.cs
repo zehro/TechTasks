@@ -20,6 +20,30 @@ public class CollectibleStar : MonoBehaviour {
     [SerializeField]
     private new MeshRenderer renderer;
 
+    [SerializeField]
+    private bool isBigStar;
+
+    public bool IsBigStar {
+        get {
+            return isBigStar;
+        }
+    }
+
+    public void ActivateStar() {
+        if (!isBigStar) {
+            throw new UnityException("Only big stars can be activated!");
+        }
+        renderer.enabled = true;
+        collider.enabled = true;
+    }
+
+    private void Start() {
+        if (isBigStar) {
+            renderer.enabled = false;
+            collider.enabled = false;
+        }
+    }
+
     private void OnTriggerEnter(Collider col) {
         if (renderer.enabled && col.gameObject.tag == "Player") {
             Manager.CompleteStar(gameObject.GetInstanceID());
