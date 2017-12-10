@@ -6,59 +6,83 @@ public class PlayerFootstepReporter : MonoBehaviour
 {
     // An alternative to curves and animation events that allow more accurate footstep recording
     private Animator playerAnimator;
+    private Transform leftFoot;
+    private Transform rightFoot;
+
     private float lastLeftFoot = 0f;
     private float lastRightFoot = 0f;
 
     public float minFootStepSeparation = 0.3f;
-    public GameObject parent;
 
-    private void Awake()
+    void Start()
     {
-        // Throw errors into the console log for missing components
-        playerAnimator = parent.GetComponent<Animator>();
-        if (playerAnimator == null)
+        // Example of how to get access to certain limbs
+        leftFoot = this.transform.Find("mixamorig:Hips/mixamorig:LeftUpLeg/mixamorig:LeftLeg/mixamorig:LeftFoot");
+        rightFoot = this.transform.Find("mixamorig:Hips/mixamorig:RightUpLeg/mixamorig:RightLeg/mixamorig:RightFoot");
+
+        if (leftFoot == null || rightFoot == null)
         {
-            Debug.Log("Animator could not be found");
+            Debug.Log("One of the feet could not be found");
         }
     }
 
-    void OnTriggerEnter(Collider other)
+    public void LeftFoot()
     {
-        if (this.name.Equals("LeftFoot"))
+        if (Time.timeSinceLevelLoad - lastLeftFoot > minFootStepSeparation)
         {
-            if (Time.timeSinceLevelLoad - lastLeftFoot > minFootStepSeparation)
-            {
-                // Set last time of event
-                lastLeftFoot = Time.timeSinceLevelLoad;
-                // Spawn footstep event
-                EventManager.TriggerEvent<EventPlayerFootstep, Vector3, string>(transform.position, other.tag);
-                // Set foot bool in animator
-                playerAnimator.SetBool("isLeftFootAvailable", false);
-            }
-        }
-        else if (this.name.Equals("RightFoot"))
-        {
-            if (Time.timeSinceLevelLoad - lastRightFoot > minFootStepSeparation)
-            {
-                // Set last time of event
-                lastRightFoot = Time.timeSinceLevelLoad;
-                // Spawn footstep event
-                EventManager.TriggerEvent<EventPlayerFootstep, Vector3, string>(transform.position, other.tag);
-                // Set foot bool in animator
-                playerAnimator.SetBool("isRightFootAvailable", false);
-            }
+            // Set last time of event
+            lastLeftFoot = Time.timeSinceLevelLoad;
+            // Spawn footstep event
+            //EventManager.TriggerEvent<EventPlayerFootstep, Vector3, string>(transform.position, other.tag);
         }
     }
 
-    void OnTriggerExit(Collider other)
+    public void RightFoot()
     {
-        if (this.name.Equals("LeftFoot") && !playerAnimator.GetBool("isLeftFootAvailable"))
+        if (Time.timeSinceLevelLoad - lastLeftFoot > minFootStepSeparation)
         {
-            playerAnimator.SetBool("isLeftFootAvailable", true);
-        }
-        else if (this.name.Equals("RightFoot") && !playerAnimator.GetBool("isRightFootAvailable"))
-        {
-            playerAnimator.SetBool("isRightFootAvailable", true);
+            // Set last time of event
+            lastLeftFoot = Time.timeSinceLevelLoad;
+            // Spawn footstep event
+            //EventManager.TriggerEvent<EventPlayerFootstep, Vector3, string>(transform.position, other.tag);
         }
     }
+
+    //public void leftFootStep()
+    //{
+    //    if (leftFoot == null)
+    //    {
+    //        return;
+    //    }
+
+    //    //see if it's been long enough since the last footstep
+    //    if (Time.timeSinceLevelLoad - lastLeftFoot > minFootStepSeparation && Time.timeSinceLevelLoad - lastRightFoot > minFootStepSeparation)
+    //    {
+    //        lastLeftFoot = Time.timeSinceLevelLoad;
+
+    //        //TODO spawn event for footstep sound
+    //        EventManager.TriggerEvent<EventPlayerFootstep, Vector3>(leftFoot.position);
+    //    }
+
+    //    //Otherwise, just fall through and ignore the footstep callback that wanted to play
+    //}
+
+    //public void rightFootStep()
+    //{
+    //    if (rightFoot == null)
+    //    {
+    //        return;
+    //    }
+
+    //    //see if it's been long enough since the last footstep
+    //    if (Time.timeSinceLevelLoad - lastLeftFoot > minFootStepSeparation && Time.timeSinceLevelLoad - lastRightFoot > minFootStepSeparation)
+    //    {
+    //        lastRightFoot = Time.timeSinceLevelLoad;
+
+    //        //TODO spawn event for footstep sound
+    //        EventManager.TriggerEvent<EventPlayerFootstep, Vector3>(rightFoot.position);
+    //    }
+
+    //    //Otherwise, just fall through and ignore the footstep callback that wanted to play
+    //}
 }
