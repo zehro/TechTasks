@@ -64,9 +64,7 @@ public class BombStateMachine : MonoBehaviour {
     private void Update() {
         if (playerAnimator.GetBool("isFalling")) {
             jumpOn();
-            print("fall");
         } else if (Vector3.Distance(player.transform.position, this.transform.position) < 1) {
-            print("bomb");
             StartCoroutine(waitAndBomb());
             if (explosion == null) {
                 explosion = StartCoroutine(bomb());
@@ -98,14 +96,12 @@ public class BombStateMachine : MonoBehaviour {
     }
 
     private void transitionToStatePatrol() {
-        print("patrol");
         if (currWaypointIndex == -1 || locomotion.reachedWaypoint(wayPointList[currWaypointIndex].transform)) {
             int waypointIndex = UnityEngine.Random.Range(0, wayPointList.Length);
             while (waypointIndex == currWaypointIndex) {
                 waypointIndex = UnityEngine.Random.Range(0, wayPointList.Length);
             }
             currWaypointIndex = waypointIndex;
-            print("patrol waypoint " + currWaypointIndex);
             locomotion.setWayPoint(wayPointList[currWaypointIndex].transform);
         }
     }
@@ -116,7 +112,6 @@ public class BombStateMachine : MonoBehaviour {
         locomotion.setWayPoint(player.transform);
         //        if (!locomotion.isComplete(player.transform.position))
         //        {
-        print("chase");
         float dist = (player.transform.position - transform.position).magnitude;
         float futureT = 0.1f * dist;
         futureT = Mathf.Min(futureT, 1000); //limit on how far ahead to look
