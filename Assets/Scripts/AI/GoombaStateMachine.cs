@@ -31,6 +31,17 @@ public class GoombaStateMachine : MonoBehaviour {
     [SerializeField]
     private ParticleSystem ps;
 
+    [SerializeField]
+    private AudioClip flattened;
+
+    [SerializeField]
+    private AudioClip die;
+
+    [SerializeField]
+    private AudioSource source;
+
+    private Coroutine death;
+
     private void Start() {
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         locomotion = GetComponent<AIMovement>();
@@ -103,8 +114,8 @@ public class GoombaStateMachine : MonoBehaviour {
         float dis = Vector3.Distance(player.transform.position, this.transform.position);
         //		print ("dis: " + dis);
 
-        if (dis < 2) {
-            StartCoroutine(waitAndDie());
+        if (dis < 2 && death == null) {
+            death = StartCoroutine(waitAndDie());
             return true;
         }
         return false;
@@ -113,6 +124,8 @@ public class GoombaStateMachine : MonoBehaviour {
     private IEnumerator waitAndDie() {
         float oldY = transform.localScale.y;
         transform.localScale = new Vector3(transform.localScale.x, 0.1f, transform.localScale.z);
+        source.clip = flattened;
+        source.Play();
         yield return new WaitForSeconds(1);
         transform.localScale = new Vector3(transform.localScale.x, 1, transform.localScale.z);
         agent.isStopped = true;
@@ -122,6 +135,8 @@ public class GoombaStateMachine : MonoBehaviour {
             col.enabled = false;
         }
         ps.Play();
+        source.clip = die;
+        source.Play();
         yield return new WaitWhile(() => ps.isPlaying);
         Destroy(this.gameObject);
     }
