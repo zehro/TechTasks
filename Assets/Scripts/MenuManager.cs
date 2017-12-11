@@ -5,10 +5,32 @@ using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour {
 
+	public float transitionDuration = 2.5f;
+	public Transform target;
+	public Transform cameraTransform;
+	public bool waitForTransitionToFinish = true;
+
+	IEnumerator Transition(string sceneName)
+	{
+		float t = 0.0f;
+		Vector3 startingPos = cameraTransform.position;
+		while (t < 0.9f)
+		{
+			t += Time.deltaTime * (Time.timeScale/transitionDuration);
+
+			cameraTransform.position = Vector3.Lerp(startingPos, new Vector3(target.position.x, target.position.y + 2, target.position.z), t);
+
+			yield return 0;
+		}
+		SceneManager.LoadScene (sceneName, LoadSceneMode.Single);
+	}
+
 	// Opens new scene
 	public void changeScene(string sceneName)
 	{
-		SceneManager.LoadScene (sceneName, LoadSceneMode.Single);
+		StartCoroutine (Transition (sceneName));
+
+		//SceneManager.LoadScene (sceneName, LoadSceneMode.Single);
 	}
 		
 	// Leave the main menu and go to sub menu maskName
