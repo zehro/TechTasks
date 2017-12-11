@@ -41,6 +41,7 @@ public class DamageTaker : MonoBehaviour {
 
     public void Hurt(Vector3 position) {
         if (routine == null) {
+            SetRenderers(true);
             routine = StartCoroutine(TakeDamage(position));
         }
     }
