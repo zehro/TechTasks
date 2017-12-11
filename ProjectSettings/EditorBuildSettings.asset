@@ -8,12 +8,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 71f6d168a57344f4f8028555769051fe
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Scenes/Alpha Demo.unity
-    guid: c40cab4089a7e704b947f0a87d0aa05f
-  - enabled: 1
-    path: Assets/Scenes/Test_Controller Andy.unity
+    path: Assets/Scenes/Play Scene.unity
     guid: 2bf6f120974f05646bdaaf01c0b76faa
