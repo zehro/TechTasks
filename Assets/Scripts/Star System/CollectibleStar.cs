@@ -15,6 +15,9 @@ public class CollectibleStar : MonoBehaviour {
     }
 
     [SerializeField]
+    private AudioClip starGetSound;
+
+    [SerializeField]
     private float rotationSpeed = 10;
 
     [SerializeField]
@@ -26,11 +29,16 @@ public class CollectibleStar : MonoBehaviour {
     [SerializeField]
     private bool isBigStar;
 
+    [SerializeField]
+    private ParticleSystem system;
+
     public bool IsBigStar {
         get {
             return isBigStar;
         }
     }
+
+    private bool isObtained;
 
     public void ActivateStar() {
         if (!isBigStar) {
@@ -49,6 +57,8 @@ public class CollectibleStar : MonoBehaviour {
 
     private void OnTriggerEnter(Collider col) {
         if (renderer.enabled && col.gameObject.tag == "Player") {
+            AudioSource.PlayClipAtPoint(starGetSound, transform.position);
+            system.Play();
             Manager.CompleteStar(gameObject.GetInstanceID());
             renderer.enabled = false;
             collider.enabled = false;
