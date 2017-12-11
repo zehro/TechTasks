@@ -171,6 +171,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             StartCoroutine(MakeJump());
+            EventManager.TriggerEvent<EventPlayerFootstep, Vector3, string>(transform.position, "Player");
         }
     }
 
