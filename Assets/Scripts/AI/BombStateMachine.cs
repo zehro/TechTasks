@@ -99,7 +99,7 @@ public class BombStateMachine : MonoBehaviour {
 
     private void transitionToStatePatrol() {
         print("patrol");
-        if (currWaypointIndex == -1 || currWaypointIndex >= wayPointList.Length || locomotion.reachedWaypoint(wayPointList[currWaypointIndex].transform)) {
+        if (currWaypointIndex == -1 || locomotion.reachedWaypoint(wayPointList[currWaypointIndex].transform)) {
             int waypointIndex = UnityEngine.Random.Range(0, wayPointList.Length);
             while (waypointIndex == currWaypointIndex) {
                 waypointIndex = UnityEngine.Random.Range(0, wayPointList.Length);
@@ -125,10 +125,9 @@ public class BombStateMachine : MonoBehaviour {
 
         GameObject go;
         if (lookahead == null) {
-            go = new GameObject();
-        } else {
-            go = lookahead;
+            lookahead = new GameObject();
         }
+        go = lookahead;
         var newTrans = go.transform;
         newTrans.position = futureMoverPos;
         //update the target waypoint
