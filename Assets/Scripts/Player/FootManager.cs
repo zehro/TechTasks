@@ -51,7 +51,6 @@ public class FootManager : MonoBehaviour {
         if (isContactingGround
             && velocity.magnitude > epsilon
             && (dustTrailTimer += Time.deltaTime) > dustTrailCooldown) {
-            Debug.Log(velocity.magnitude);
             StartCoroutine(AddDustTrail());
         }
         lastPosition = transform.position;
@@ -61,11 +60,16 @@ public class FootManager : MonoBehaviour {
         ParticleSystem ps = Instantiate<ParticleSystem>(dustPrefab);
         dustTrails.Enqueue(ps);
         while (dustTrails.Count > maxDustTrails) {
-            Destroy(dustTrails.Dequeue());
+            ParticleSystem dequeued = dustTrails.Dequeue();
+            if (dequeued != null) {
+                Destroy(dequeued.gameObject);
+            }
         }
         ps.gameObject.transform.position = playerBase.position;
         ps.Play();
-        yield return new WaitWhile(() => ps.isPlaying);
-        Destroy(ps);
+        yield return new WaitWhile(() => ps != null && ps.isPlaying);
+        if (ps != null) {
+            Destroy(ps.gameObject);
+        }
     }
 }
