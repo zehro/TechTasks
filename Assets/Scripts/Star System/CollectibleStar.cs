@@ -66,6 +66,6 @@ public class CollectibleStar : MonoBehaviour {
     }
 
     private void Update() {
-        this.transform.Rotate(Vector3.up, rotationSpeed);
+        this.transform.Rotate(Vector3.up, rotationSpeed * Time.deltaTime * 60);
     }
 }
