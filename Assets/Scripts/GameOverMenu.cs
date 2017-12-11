@@ -17,6 +17,6 @@ public class GameOverMenu : MonoBehaviour {
 
     public void Retry() {
         Time.timeScale = 1;
-        SceneManager.LoadScene("Test_Controller Andy");
+        SceneManager.LoadScene("Play Scene");
     }
 }

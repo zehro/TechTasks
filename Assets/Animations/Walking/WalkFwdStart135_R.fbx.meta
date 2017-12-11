@@ -3,7 +3,7 @@ guid: 0e86e0e347391a44ebb15a5f01351efa
 timeCreated: 1506775893
 licenseType: Free
 ModelImporter:
-  serializedVersion: 21
+  serializedVersion: 22
   fileIDToRecycleName:
     100000: ball_l
     100002: ball_r
@@ -239,10 +239,12 @@ ModelImporter:
     13700030: mannequin_geo_pelvis
     13700032: mannequin_geo_thigh_l
     13700034: mannequin_geo_thigh_r
+  externalObjects: {}
   materials:
     importMaterials: 0
     materialName: 0
     materialSearch: 1
+    materialLocation: 0
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
@@ -250,11 +252,18 @@ ModelImporter:
     optimizeGameObjects: 0
     motionNodeName: 
     rigImportErrors: 
-    rigImportWarnings: 
+    rigImportWarnings: "Avatar Rig Configuration mis-match. Bone length in configuration
+      does not match position in animation file:\n\t'thigh_l' : position error = 8480.664063
+      mm\n\t'calf_l' : position error = 39513.652344 mm\n\t'foot_l' : position error
+      = 37308.953125 mm\n\t'ball_l' : position error = 18190.851563 mm\n\t'thigh_r'
+      : position error = 8480.631836 mm\n\t'calf_r' : position error = 39513.851563
+      mm\n\t'foot_r' : position error = 37309.070313 mm\n\t'ball_r' : position error
+      = 18190.796875 mm\n"
     animationImportErrors: 
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
     animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
@@ -268,7 +277,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 0
@@ -277,7 +286,7 @@ ModelImporter:
     generateSecondaryUV: 0
     useFileUnits: 1
     optimizeMeshForGPU: 1
-    keepQuads: 0
+    keepQuads: 1
     weldVertices: 1
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
@@ -287,7 +296,7 @@ ModelImporter:
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
-    tangentImportMode: 3
+    tangentImportMode: 0
     normalCalculationMode: 4
   importAnimation: 1
   copyAvatar: 0

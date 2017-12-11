@@ -43,6 +43,7 @@ public class DamageTaker : MonoBehaviour {
         if (routine == null) {
             SetRenderers(true);
             routine = StartCoroutine(TakeDamage(position));
+            SetRenderers(true);
         }
     }
 
