@@ -22,12 +22,14 @@ public class PlayerMovement : MonoBehaviour
     public float turnInterpolation = 0.05f;
     public float speedScale = 2f;
     public float gravityScale = 3f;
+    public float slopeAngleDiff = 50f;
     private Vector3 relativeVector;
     private Vector3 animRootDifference;
     private Vector3 lastAnimVelocity;
+    private Vector3 normalVector;
 
     // Falling variables
-    public bool isGrounded
+    private bool isGrounded
     {
         get { return groundContacts > 0; }
     }
@@ -36,6 +38,12 @@ public class PlayerMovement : MonoBehaviour
     private float rayDepth = 1f;
     private RaycastHit hit;
     private int layerMask = (1 << 9); //~(1 << 8);
+
+    //// Sliding variables
+    //private bool isSliding
+    //{
+    //    get { return Vector3.Angle(Vector3.up, normalVector) > slopeAngleDiff; }
+    //}
 
     // Jumping variables
     public bool jumpButtonPressed
@@ -112,6 +120,7 @@ public class PlayerMovement : MonoBehaviour
             playerAnimator.SetFloat("VelocityY", velocityY);
         }
 
+        // Handle sliding & falling
         if (!isGrounded)
         {
             // Toggles the fall trigger, then disables future triggers
@@ -120,20 +129,40 @@ public class PlayerMovement : MonoBehaviour
                 playerAnimator.SetTrigger("Fall");
                 playerAnimator.SetBool("isFalling", true);
             }
+        }
 
-            Ray ray = new Ray(this.transform.position + Vector3.up * rayOriginOffset, Vector3.down);
+        Ray ray = new Ray(this.transform.position + Vector3.up * rayOriginOffset, Vector3.down);
 
-            //Cast ray and look for ground. If ground is close, then transition out of falling animation
-            if (Physics.Raycast(ray, out hit, rayOriginOffset + rayDepth + (Mathf.Pow(-velocityY, 2) * Time.deltaTime), layerMask))
+        //Cast ray and look for ground
+        if (Physics.Raycast(ray, out hit, rayOriginOffset + rayDepth + (Mathf.Pow(-velocityY, 2) * Time.deltaTime), layerMask))
+        {
+            normalVector = hit.normal;
+
+            if (!isGrounded)
             {
+                // Check to see if raycast hits the ground
                 if (IsGround(hit.collider.gameObject))
                 {
-                    Debug.Log(hit.collider.gameObject.tag);
                     // Turning falling back off because we are close to the ground
                     playerAnimator.SetBool("isFalling", false);
                 }
             }
+
+            //if (isSliding)
+            //{
+            //    if (playerAnimator.GetBool("isSliding") == false)
+            //    {
+            //        playerAnimator.SetTrigger("Slide");
+            //        playerAnimator.SetBool("isSliding", true);
+            //    }
+            //}
+            //else
+            //{
+            //    playerAnimator.SetBool("isSliding", false);
+            //}
         }
+
+        playerRigidbody.angularVelocity = Vector3.zero;
     }
 
     void Update()
@@ -142,6 +171,14 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             StartCoroutine(MakeJump());
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (!isGrounded && collision.impulse.magnitude > 0.1f)
+        {
+            lastAnimVelocity = (collision.impulse.normalized) + (Vector3.down * 2f);
         }
     }
 
@@ -164,12 +201,11 @@ public class PlayerMovement : MonoBehaviour
     // Called when the animator moves
     void OnAnimatorMove()
     {
-        playerRigidbody.angularVelocity = Vector3.zero;
         if (!isGrounded)
         {
             // Moves the character slightly with input (for falling, jumping)
             playerRigidbody.velocity = lastAnimVelocity;
-            lastAnimVelocity += (input + (Vector3.down * gravityScale)) * Time.deltaTime;
+            lastAnimVelocity += (Vector3.down * gravityScale) * Time.deltaTime;
         }
         else
         {
@@ -179,6 +215,7 @@ public class PlayerMovement : MonoBehaviour
                                     transform.position.x + (animRootDifference.x * speedScale),
                                     playerAnimator.rootPosition.y,
                                     transform.position.z + (animRootDifference.z * speedScale));
+
             transform.rotation = playerAnimator.rootRotation;
 
             // Keep track of the current animator velocity
@@ -201,7 +238,8 @@ public class PlayerMovement : MonoBehaviour
     public IEnumerator MakeJump()
     {
         playerAnimator.SetTrigger("Jump");
-        float timer = 0.7f;
+        //playerAnimator.SetBool("isFalling", true);
+        float timer = 1.0f;
 
         while (jumpButtonPressed && timer < jumpTimeInterval)
         {
