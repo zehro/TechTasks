@@ -56,6 +56,7 @@ public class PauseMenuManager : MonoBehaviour {
     public void DoGameOver(string text) {
         if (isGameRunning) {
             TogglePause(() => {
+                this.pauseType = PauseType.MENU;
                 gameOverMenu.Header = text;
                 gameOverMenu.gameObject.SetActive(true);
             });
