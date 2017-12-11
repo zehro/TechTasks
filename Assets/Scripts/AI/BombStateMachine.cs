@@ -5,6 +5,16 @@ using System;
 
 [RequireComponent(typeof(UnityEngine.AI.NavMeshAgent))]
 public class BombStateMachine : MonoBehaviour {
+
+    [SerializeField]
+    private DamageTaker damageTaker;
+
+    [SerializeField]
+    private ParticleSystem system;
+
+    [SerializeField]
+    private AudioSource source;
+
     private RaycastHit hitInfo = new RaycastHit();
     private UnityEngine.AI.NavMeshAgent agent;
     private Animator anim;
@@ -21,6 +31,8 @@ public class BombStateMachine : MonoBehaviour {
     private int currWaypointIndex = -1;
     private Boolean dead = false;
     private Boolean isFalling = false;
+    private bool isPlayerInside;
+    private Coroutine explosion;
 
     public enum Behavior {
         Patrol,
@@ -28,6 +40,18 @@ public class BombStateMachine : MonoBehaviour {
     }
 
     public Behavior behavior = Behavior.Patrol;
+
+    private void OnTriggerEnter(Collider col) {
+        if (col.transform.tag == "Player") {
+            isPlayerInside = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider col) {
+        if (col.transform.tag == "Player") {
+            isPlayerInside = false;
+        }
+    }
 
     private void Start() {
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
@@ -44,7 +68,9 @@ public class BombStateMachine : MonoBehaviour {
         } else if (Vector3.Distance(player.transform.position, this.transform.position) < 1) {
             print("bomb");
             StartCoroutine(waitAndBomb());
-            StartCoroutine(bomb());
+            if (explosion == null) {
+                explosion = StartCoroutine(bomb());
+            }
         }
         transition();
     }
@@ -57,6 +83,13 @@ public class BombStateMachine : MonoBehaviour {
 
     private IEnumerator bomb() {
         yield return new WaitForSeconds(2f);
+        system.Play();
+        source.Play();
+        if (isPlayerInside) {
+            damageTaker.Hurt(this.transform.position);
+        }
+        yield return new WaitWhile(() => system.isPlaying && source.isPlaying);
+        yield return new WaitForSeconds(0.5f);
         Destroy(this.gameObject);
     }
 

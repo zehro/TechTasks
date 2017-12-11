@@ -39,9 +39,15 @@ public class DamageTaker : MonoBehaviour {
         this.renderers = model.GetComponentsInChildren<SkinnedMeshRenderer>();
     }
 
+    public void Hurt(Vector3 position) {
+        if (routine == null) {
+            routine = StartCoroutine(TakeDamage(position));
+        }
+    }
+
     private void OnCollisionEnter(Collision collision) {
-        if (collision.gameObject.tag == "Enemy" && routine == null) {
-            routine = StartCoroutine(TakeDamage(collision.transform.position));
+        if (collision.gameObject.tag == "Enemy") {
+            Hurt(collision.transform.position);
         }
     }
 
