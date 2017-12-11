@@ -159,7 +159,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34319f57bf1964b0a964f0639965afa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 1906404083938950, guid: bc1692e6b5fbea642bca767821ceb933, type: 2}
   futureTLimit: 1.5
   wayPointList: []
   behavior: 0
