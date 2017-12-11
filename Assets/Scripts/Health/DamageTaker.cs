@@ -60,7 +60,7 @@ public class DamageTaker : MonoBehaviour {
             SetRenderers(true);
             yield return null;
         }
-        model.SetActive(true);
+        SetRenderers(true);
         routine = null;
     }
 
