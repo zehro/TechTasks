@@ -90,9 +90,7 @@ public class SplineController : MonoBehaviour
 	}
 
 
-	/// <summary>
-	/// Returns children transforms, sorted by name.
-	/// </summary>
+	// Returns children transforms, sorted by name.
 	Transform[] GetTransforms()
 	{
 		if (SplineRoot != null)
@@ -112,9 +110,7 @@ public class SplineController : MonoBehaviour
 		return null;
 	}
 
-	/// <summary>
-	/// Disables the spline objects, we don't need them outside design-time.
-	/// </summary>
+	// Disables the spline objects, we don't need them outside design-time.
 	void DisableTransforms()
 	{
 		if (SplineRoot != null)
@@ -124,9 +120,7 @@ public class SplineController : MonoBehaviour
 	}
 
 
-	/// <summary>
-	/// Starts the interpolation
-	/// </summary>
+	// Starts the interpolation
 	void FollowSpline()
 	{
 		if (mTransforms.Length > 0)
@@ -135,4 +129,5 @@ public class SplineController : MonoBehaviour
 			mSplineInterp.StartInterpolation(null, true, WrapMode);
 		}
 	}
+		
 }
