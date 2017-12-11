@@ -15,6 +15,9 @@ public class CollectibleStar : MonoBehaviour {
     }
 
     [SerializeField]
+    private float rotationSpeed = 10;
+
+    [SerializeField]
     private new Collider collider;
 
     [SerializeField]
@@ -50,5 +53,9 @@ public class CollectibleStar : MonoBehaviour {
             renderer.enabled = false;
             collider.enabled = false;
         }
+    }
+
+    private void Update() {
+        this.transform.Rotate(Vector3.up, rotationSpeed);
     }
 }
