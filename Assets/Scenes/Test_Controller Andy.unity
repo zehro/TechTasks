@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -151,11 +151,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114940170713354582, guid: 1cfeed18a44b9da499ac2c2ba533fc6b,
-        type: 2}
-      propertyPath: starGetSound
-      value: 
-      objectReference: {fileID: 8300000, guid: 66c9da811deebfc46b9f60e777ac5bd7, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1cfeed18a44b9da499ac2c2ba533fc6b, type: 2}
   m_IsPrefabParent: 0
@@ -198,21 +193,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 198825360968733738, guid: 27217b3bfe21e5141ad04a388c1df1cc,
-        type: 2}
-      propertyPath: randomSeed
-      value: -1311582015
-      objectReference: {fileID: 0}
-    - target: {fileID: 198825360968733738, guid: 27217b3bfe21e5141ad04a388c1df1cc,
-        type: 2}
-      propertyPath: ShapeModule.radiusThickness
-      value: 0.000001
-      objectReference: {fileID: 0}
-    - target: {fileID: 198825360968733738, guid: 27217b3bfe21e5141ad04a388c1df1cc,
-        type: 2}
-      propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.scalar
-      value: 250
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 27217b3bfe21e5141ad04a388c1df1cc, type: 2}
   m_IsPrefabParent: 0
@@ -243,7 +223,7 @@ Transform:
   m_Children:
   - {fileID: 1448437461}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &296118583
 Prefab:
@@ -1480,12 +1460,12 @@ Prefab:
     - target: {fileID: 224347508102331240, guid: 7d77792f634f0ca41b891d168459c6bc,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: 384.2345
+      value: 505.2345
       objectReference: {fileID: 0}
     - target: {fileID: 224347508102331240, guid: 7d77792f634f0ca41b891d168459c6bc,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 152.26596
+      value: 281.26596
       objectReference: {fileID: 0}
     - target: {fileID: 224887476815725506, guid: 7d77792f634f0ca41b891d168459c6bc,
         type: 2}

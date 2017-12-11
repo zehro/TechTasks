@@ -15,7 +15,7 @@ public class CollectibleStar : MonoBehaviour {
     }
 
     [SerializeField]
-    private AudioClip starGetSound;
+    private AudioSource source;
 
     [SerializeField]
     private float rotationSpeed = 10;
@@ -57,7 +57,7 @@ public class CollectibleStar : MonoBehaviour {
 
     private void OnTriggerEnter(Collider col) {
         if (renderer.enabled && col.gameObject.tag == "Player") {
-            AudioSource.PlayClipAtPoint(starGetSound, transform.position);
+            source.Play();
             system.Play();
             Manager.CompleteStar(gameObject.GetInstanceID());
             renderer.enabled = false;

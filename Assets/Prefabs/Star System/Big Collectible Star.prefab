@@ -26,6 +26,7 @@ GameObject:
   - component: {fileID: 114940170713354582}
   - component: {fileID: 199021701299415800}
   - component: {fileID: 198563866238969840}
+  - component: {fileID: 82263387796182132}
   m_Layer: 0
   m_Name: Big Collectible Star
   m_TagString: Untagged
@@ -88,6 +89,86 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1590478387232522}
   m_Mesh: {fileID: 4300000, guid: a5c6e1db2cdb6fb429ff691fcedde2d0, type: 3}
+--- !u!82 &82263387796182132
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1590478387232522}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 66c9da811deebfc46b9f60e777ac5bd7, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.711
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 0
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!95 &95346759169552100
 Animator:
   serializedVersion: 3
@@ -116,7 +197,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f24cd62e2a352ae4282af2788f9a109f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  starGetSound: {fileID: 8300000, guid: ded6baa427d97b14fad339506ba6e714, type: 3}
+  source: {fileID: 82263387796182132}
   rotationSpeed: 5
   collider: {fileID: 136568156102427238}
   renderer: {fileID: 23080692972453504}
@@ -195,7 +276,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 215142028
+  randomSeed: 2141226984
   InitialModule:
     serializedVersion: 3
     enabled: 1
