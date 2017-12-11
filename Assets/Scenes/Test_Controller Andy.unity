@@ -395,7 +395,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4409820075838584, guid: 1ef2a3ed4f970c9449e144fdd1d26c46, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 6.923542
+      value: 7.322
       objectReference: {fileID: 0}
     - target: {fileID: 4409820075838584, guid: 1ef2a3ed4f970c9449e144fdd1d26c46, type: 2}
       propertyPath: m_LocalPosition.z
@@ -864,6 +864,11 @@ Prefab:
       propertyPath: player
       value: 
       objectReference: {fileID: 1856105926}
+    - target: {fileID: 23712663267518842, guid: 1ef2a3ed4f970c9449e144fdd1d26c46,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1ef2a3ed4f970c9449e144fdd1d26c46, type: 2}
   m_IsPrefabParent: 0
@@ -1596,7 +1601,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4409820075838584, guid: 1ef2a3ed4f970c9449e144fdd1d26c46, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 5.3516064
+      value: 5.711
       objectReference: {fileID: 0}
     - target: {fileID: 4409820075838584, guid: 1ef2a3ed4f970c9449e144fdd1d26c46, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1637,6 +1642,21 @@ Prefab:
       propertyPath: player
       value: 
       objectReference: {fileID: 1856105926}
+    - target: {fileID: 198312544202498842, guid: 1ef2a3ed4f970c9449e144fdd1d26c46,
+        type: 2}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 198312544202498842, guid: 1ef2a3ed4f970c9449e144fdd1d26c46,
+        type: 2}
+      propertyPath: randomSeed
+      value: 1697077872
+      objectReference: {fileID: 0}
+    - target: {fileID: 199712887894823636, guid: 1ef2a3ed4f970c9449e144fdd1d26c46,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1ef2a3ed4f970c9449e144fdd1d26c46, type: 2}
   m_IsPrefabParent: 0
@@ -3794,7 +3814,7 @@ Prefab:
     - target: {fileID: 114230062221473844, guid: bc1692e6b5fbea642bca767821ceb933,
         type: 2}
       propertyPath: knockbackFromHit
-      value: 100000
+      value: 10000
       objectReference: {fileID: 0}
     - target: {fileID: 4366185134100538, guid: bc1692e6b5fbea642bca767821ceb933, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y

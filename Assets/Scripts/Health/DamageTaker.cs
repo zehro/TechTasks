@@ -46,13 +46,13 @@ public class DamageTaker : MonoBehaviour {
     }
 
     private void OnCollisionEnter(Collision collision) {
-        if (collision.gameObject.tag == "Enemy") {
+        if (collision.gameObject.tag == "Enemy" && collision.transform.localScale.y > 0.2f) {
             Hurt(collision.transform.position);
         }
     }
 
     private IEnumerator TakeDamage(Vector3 enemyPosition) {
-        Vector3 knockbackDirection = (enemyPosition - this.transform.position).normalized;
+        Vector3 knockbackDirection = Vector3.up.normalized;
         knockbackDirection *= knockbackFromHit;
         body.AddForce(knockbackDirection, ForceMode.Force);
 

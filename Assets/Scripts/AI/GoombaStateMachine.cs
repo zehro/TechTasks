@@ -28,6 +28,9 @@ public class GoombaStateMachine : MonoBehaviour {
     public Behavior behavior = Behavior.Patrol;
     private GameObject nextPoint;
 
+    [SerializeField]
+    private ParticleSystem ps;
+
     private void Start() {
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         locomotion = GetComponent<AIMovement>();
@@ -108,7 +111,18 @@ public class GoombaStateMachine : MonoBehaviour {
     }
 
     private IEnumerator waitAndDie() {
-        yield return new WaitForSeconds(1f);
+        float oldY = transform.localScale.y;
+        transform.localScale = new Vector3(transform.localScale.x, 0.1f, transform.localScale.z);
+        yield return new WaitForSeconds(1);
+        transform.localScale = new Vector3(transform.localScale.x, 1, transform.localScale.z);
+        agent.isStopped = true;
+        GetComponent<Renderer>().enabled = false;
+        this.tag = "Untagged";
+        foreach (Collider col in GetComponents<Collider>()) {
+            col.enabled = false;
+        }
+        ps.Play();
+        yield return new WaitWhile(() => ps.isPlaying);
         Destroy(this.gameObject);
     }
 

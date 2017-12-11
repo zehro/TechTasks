@@ -154,11 +154,6 @@ public class BombStateMachine : MonoBehaviour {
     private bool jumpOn() {
         float dis = Vector3.Distance(player.transform.position, this.transform.position);
         //		print ("dis: " + dis);
-
-        if (dis < 2) {
-            StartCoroutine(waitAndDie());
-            return true;
-        }
         return false;
     }
 
