@@ -26,6 +26,7 @@ public class GoombaStateMachine : MonoBehaviour {
     }
 
     public Behavior behavior = Behavior.Patrol;
+    private GameObject nextPoint;
 
     private void Start() {
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
@@ -43,14 +44,12 @@ public class GoombaStateMachine : MonoBehaviour {
     }
 
     private void transitionToStatePatrol() {
-        print("patrol");
         if (currWaypointIndex == -1 || locomotion.reachedWaypoint(wayPointList[currWaypointIndex].transform)) {
             int waypointIndex = UnityEngine.Random.Range(0, wayPointList.Length);
             while (waypointIndex == currWaypointIndex) {
                 waypointIndex = UnityEngine.Random.Range(0, wayPointList.Length);
             }
             currWaypointIndex = waypointIndex;
-            print("patrol waypoint " + currWaypointIndex);
             locomotion.setWayPoint(wayPointList[currWaypointIndex].transform);
         }
     }
@@ -61,13 +60,15 @@ public class GoombaStateMachine : MonoBehaviour {
         locomotion.setWayPoint(player.transform);
         //        if (!locomotion.isComplete(player.transform.position))
         //        {
-        print("chase");
         float dist = (player.transform.position - transform.position).magnitude;
         float futureT = 0.1f * dist;
         futureT = Mathf.Min(futureT, 1000); //limit on how far ahead to look
                                             //extrapolate assuming constant Vel and the futureT intercept estimate
         Vector3 futureMoverPos = player.transform.position + player.GetComponent<Rigidbody>().velocity * futureT;
-        var newTrans = new GameObject().transform;
+        if (nextPoint == null) {
+            nextPoint = new GameObject();
+        }
+        var newTrans = nextPoint.transform;
         newTrans.position = futureMoverPos;
         //update the target waypoint
         locomotion.setWayPoint(newTrans);
