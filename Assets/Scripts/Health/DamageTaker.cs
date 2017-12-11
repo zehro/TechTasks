@@ -16,7 +16,13 @@ public class DamageTaker : MonoBehaviour {
     [SerializeField]
     private GameObject model;
 
+    private SkinnedMeshRenderer[] renderers;
+
     private Coroutine routine;
+
+    private void Start() {
+        this.renderers = model.GetComponentsInChildren<SkinnedMeshRenderer>();
+    }
 
     private void OnCollisionEnter(Collision collision) {
         if (collision.gameObject.tag == "Enemy" && routine == null) {
@@ -28,12 +34,18 @@ public class DamageTaker : MonoBehaviour {
         float invincible = 0;
         health.LoseHealth();
         while ((invincible += flickerRate) < invincibleDuration) {
-            model.SetActive(false);
+            SetRenderers(false);
             yield return new WaitForSeconds(flickerRate);
-            model.SetActive(true);
+            SetRenderers(true);
             yield return null;
         }
         model.SetActive(true);
         routine = null;
+    }
+
+    private void SetRenderers(bool isActive) {
+        foreach (SkinnedMeshRenderer skin in renderers) {
+            skin.enabled = isActive;
+        }
     }
 }
