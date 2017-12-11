@@ -16,6 +16,21 @@ public class DamageTaker : MonoBehaviour {
     [SerializeField]
     private GameObject model;
 
+    [SerializeField]
+    private AudioSource source;
+
+    [SerializeField]
+    private float minPitch = 0.8f;
+
+    [SerializeField]
+    private float maxPitch = 1.2f;
+
+    [SerializeField]
+    private float knockbackFromHit;
+
+    [SerializeField]
+    private Rigidbody body;
+
     private SkinnedMeshRenderer[] renderers;
 
     private Coroutine routine;
@@ -26,13 +41,19 @@ public class DamageTaker : MonoBehaviour {
 
     private void OnCollisionEnter(Collision collision) {
         if (collision.gameObject.tag == "Enemy" && routine == null) {
-            routine = StartCoroutine(TakeDamage());
+            routine = StartCoroutine(TakeDamage(collision.transform.position));
         }
     }
 
-    private IEnumerator TakeDamage() {
+    private IEnumerator TakeDamage(Vector3 enemyPosition) {
+        Vector3 knockbackDirection = (enemyPosition - this.transform.position).normalized;
+        knockbackDirection *= knockbackFromHit;
+        body.AddForce(knockbackDirection, ForceMode.Force);
+
         float invincible = 0;
         health.LoseHealth();
+        source.pitch = Random.Range(minPitch, maxPitch);
+        source.Play();
         while ((invincible += flickerRate) < invincibleDuration) {
             SetRenderers(false);
             yield return new WaitForSeconds(flickerRate);
