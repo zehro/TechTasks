@@ -12,7 +12,6 @@ public class PauseMenuManager : MonoBehaviour {
         MENU
     }
 
-    private const string GAME_OVER_TEXT = "You obtained all the stars in {0}! Wow!";
     private const int DEFAULT_TIME = 1;
 
     private const int PAUSE_TIME = 0;
@@ -54,10 +53,10 @@ public class PauseMenuManager : MonoBehaviour {
         Debug.Log("No settings yet.");
     }
 
-    public void DoGameOver(string gameEndTime) {
+    public void DoGameOver(string text) {
         if (isGameRunning) {
             TogglePause(() => {
-                gameOverMenu.Header = string.Format(GAME_OVER_TEXT, gameEndTime);
+                gameOverMenu.Header = text;
                 gameOverMenu.gameObject.SetActive(true);
             });
         }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class StarManager : MonoBehaviour {
+    private const string GAME_OVER_TEXT = "You obtained all the stars in {0}! Wow!";
 
     [SerializeField]
     private Star uiPrefab;
@@ -15,6 +16,9 @@ public class StarManager : MonoBehaviour {
 
     [SerializeField]
     private Timer timer;
+
+    [SerializeField]
+    private HealthManager health;
 
     private IDictionary<int, Star> dict;
 
@@ -42,9 +46,10 @@ public class StarManager : MonoBehaviour {
 
     public void CompleteStar(int instanceId) {
         if (bigStar.gameObject.GetInstanceID() == instanceId) {
-            pause.DoGameOver(this.timer.GetTimeFormatted());
+            pause.DoGameOver(string.Format(GAME_OVER_TEXT, this.timer.GetTimeFormatted()));
             return;
         }
+        health.GainHealth();
         dict[instanceId].SetColor(false);
         dict.Remove(instanceId);
 

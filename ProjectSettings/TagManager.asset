@@ -10,6 +10,7 @@ TagManager:
   - Marble
   - Stone
   - Wood
+  - Enemy
   layers:
   - Default
   - TransparentFX
