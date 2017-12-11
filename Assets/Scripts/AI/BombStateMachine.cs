@@ -85,6 +85,10 @@ public class BombStateMachine : MonoBehaviour {
         yield return new WaitForSeconds(2f);
         system.Play();
         source.Play();
+        agent.isStopped = true;
+        foreach (Renderer rend in GetComponentsInChildren<MeshRenderer>()) {
+            rend.enabled = false;
+        }
         if (isPlayerInside) {
             damageTaker.Hurt(this.transform.position);
         }
